@@ -10,7 +10,7 @@ const props = defineProps({
   }
 })
 
-const {error, data, status, refresh} = useFetch(`${config.public.API_URL_GRR}/nuxt/addbook.php`, {
+const {error, data, status, refresh} = useFetch(`${config.public.API_URL}/nuxt/addbook.php`, {
   method: 'POST',
   body: {person},
   immediate: false,
