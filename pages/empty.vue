@@ -7,7 +7,6 @@ const config = useRuntimeConfig()
     {{config.public.NOTION_ROOMS_PAGE_ID}}
     <br>
     {{config.public.API_URL}}
-    {{config.public.API_URL_SERVER}}
 
   </div>
 </template>

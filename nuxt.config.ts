@@ -23,7 +23,6 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            API_URL_SERVER: process.env.API_URL_SERVER,
             API_URL: process.env.API_URL,
             DEFAULT_COVER: '/images/cover-e-Square.png',
             DEFAULT_ICON: 'https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg',
