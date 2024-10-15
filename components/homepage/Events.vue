@@ -35,7 +35,7 @@ onMounted(() => {
         <HomepageTags :data v-model:tag-selected="tagSelected"/>
       </div>
       <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
-        <WidgetsCard v-for="page in events" :key="page.id" :page/>
+        <ArticleEventItem v-for="page in events" :key="page.id" :page/>
       </div>
     </div>
   </section>

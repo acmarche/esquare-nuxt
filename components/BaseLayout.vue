@@ -45,7 +45,7 @@ const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
     </slot>
     <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80">
       <slot name="breadcrumb">
-        <WidgetsBreadcrumb :breadcrumb/>
+        <ArticleBreadcrumb :breadcrumb/>
       </slot>
       <slot name="title">
         <div class="flex flex-row space-between">

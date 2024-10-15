@@ -13,6 +13,7 @@ function onlyUnique(value, index, array) {
 const tags = computed(() => {
   const items = []
   data ? data.pages.forEach((page) => {
+    items.push('Tout')
     page['properties']['Organisateur']['multi_select'].forEach((property) => {
       if (property['name']) items.push(property.name)
     })
