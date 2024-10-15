@@ -10,7 +10,7 @@ export default (pageId = null) => {
             key: 'page-' + pageId,
         })
 
-    console.log(status.value, data.value, error.value)
+    console.log("status: " + status.value, "error " + error.value, "data " + data.value)
 
     return {
         status,

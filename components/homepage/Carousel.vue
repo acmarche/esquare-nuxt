@@ -1,48 +1,36 @@
 <script setup lang="ts">
 import Flicking from "@egjs/vue3-flicking";
-import {Fade, AutoPlay, Arrow, Parallax, Pagination} from "@egjs/flicking-plugins";
+import {AutoPlay, Arrow,  Pagination} from "@egjs/flicking-plugins";
+import {getRandomItems} from "~/composables/cacheUtil.js";
 
-const items = [
-  {
-    name: 'Minecraft Day',
-    to: 'https://github.com/Atinux',
-    src: 'https://picsum.photos/1920/1080?random=1',
-    id: 1
-  },
-  {
-    name: 'Semaine du coworking',
-    to: 'https://github.com/Atinux',
-    src: 'https://picsum.photos/1920/1080?random=2',
-    id: 2
-  },
-  {
-    name: 'Journée "Les clés du succès"',
-    to: 'https://github.com/Atinux',
-    src: 'https://picsum.photos/1920/1080?random=3',
-    id: 3
-  },
-  {
-    name: 'Comment séduire mon banquier ?',
-    to: 'https://github.com/Atinux',
-    src: 'https://picsum.photos/1920/1080?random=4',
-    id: 4
-  },
-  {
-    name: 'Mind & Market',
-    to: 'article-esquare-0dcf77ca3c1349b08d19afc5092129f3',
-    src: 'https://picsum.photos/1920/1080?random=5',
-    id: 5
-  },
-]
+const events = ref([])
+const {
+  status,
+  data,
+  error
+} = databaseActivitiesComposeGet()
 const plugins = [
-  // new Fade(),
   new AutoPlay(4000, "NEXT"),
-//  new Parallax(),
   new Arrow(),
   new Pagination(),
 ];
+
+function image(page) {
+  const files = page['properties']['ImageCouvertureCarre']['files']
+  return files.length > 0 ? files[0]['file']['url'] : '/images/news/book.jpg'
+}
+
+function texts(page) {
+  return page['properties']['Nom']['title']
+}
+
+onMounted(() => {
+  events.value = getRandomItems(data.value?.pages ?? [],5)
+})
 </script>
 <template>
+  <WidgetsLoader v-if="status === 'pending'"/>
+  <WidgetsError v-else-if="error" :error/>
   <flicking
       :options="{ circular: true, moveType: 'freeScroll' }"
       :viewportTag="'div'"
@@ -52,12 +40,16 @@ const plugins = [
       @need-panel="e => {
       // ADD PANELS
     }"
-  >
-    <div v-for="item in items" :key="item.id"
-         :style="`background-image: url('${item.src}')`"
+      v-else>
+    <NuxtLink :to="`nos-evenements/details/${page.id}`"
+              v-for="page in events"
+              :key="page.id"
+         :style="`background-image: url('${image(page)}')`"
          class="w-1/2 h-96 flex flex-col items-start justify-end bg-cover">
-      <span class="text-4xl text-white uppercase font-bold p-3 mb-4">{{ item.name }}</span>
-    </div>
+      <span class="text-4xl text-white uppercase font-bold p-3 mb-4">
+        <BlockRichText :texts="texts(page)"/>
+      </span>
+    </NuxtLink>
     <template #viewport>
       <span class="flicking-arrow-prev"></span>
       <span class="flicking-arrow-next"></span>

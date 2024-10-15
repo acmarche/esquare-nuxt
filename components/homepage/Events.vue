@@ -1,7 +1,7 @@
 <script setup lang="ts">
 //https://play.tailwindcss.com/0MGqLZKhTK
 const tagSelected = ref('Tout')
-const news = ref([])
+const events = ref([])
 const {
   status,
   data,
@@ -9,7 +9,7 @@ const {
 } = databaseActivitiesComposeGet()
 watch(tagSelected, (newTag) => {
   if (newTag === 'Tout') {
-    news.value = data.value.pages
+    events.value = data.value.pages
   } else if (newTag) {
     const t = []
     data.value.pages.forEach((page) => {
@@ -19,11 +19,11 @@ watch(tagSelected, (newTag) => {
         }
       })
     })
-    news.value = t
+    events.value = t
   }
 })
 onMounted(() => {
-  news.value = data.value?.pages ?? []
+  events.value = data.value?.pages ?? []
 })
 </script>
 <template>
@@ -35,7 +35,7 @@ onMounted(() => {
         <HomepageTags :data v-model:tag-selected="tagSelected"/>
       </div>
       <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
-        <WidgetsCard v-for="page in news" :key="page.id" :page/>
+        <WidgetsCard v-for="page in events" :key="page.id" :page/>
       </div>
     </div>
   </section>
