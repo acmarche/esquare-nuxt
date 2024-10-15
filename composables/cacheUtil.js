@@ -20,3 +20,12 @@ export function getCachedData(nuxtApp, key) {
 
     return data
 }
+
+export function isRefreshing() {
+    const query = useRoute().query
+    let refreshing = 0
+    if(query.hasOwnProperty('refresh')) {
+        refreshing = 1
+    }
+    return refreshing
+}
