@@ -24,16 +24,19 @@ export function getCachedData(nuxtApp, key) {
 export function isRefreshing() {
     const query = useRoute().query
     let refreshing = 0
-    if(query.hasOwnProperty('refresh')) {
+    if (query.hasOwnProperty('refresh')) {
         refreshing = 1
     }
     return refreshing
 }
 
 export function getRandomItems(arr, numItems) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr.slice(0, numItems);
+    if (arr.length === 0) {
+        return []
+    }
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr.slice(0, numItems);
 }

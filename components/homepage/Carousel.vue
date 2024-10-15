@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Flicking from "@egjs/vue3-flicking";
-import {AutoPlay, Arrow,  Pagination} from "@egjs/flicking-plugins";
+import {AutoPlay, Arrow, Pagination} from "@egjs/flicking-plugins";
 import {getRandomItems} from "~/composables/cacheUtil.js";
 
 const events = ref([])
@@ -9,11 +9,6 @@ const {
   data,
   error
 } = databaseActivitiesComposeGet()
-const plugins = [
-  new AutoPlay(4000, "NEXT"),
-  new Arrow(),
-  new Pagination(),
-];
 
 function image(page) {
   const files = page['properties']['ImageCouvertureCarre']['files']
@@ -24,8 +19,12 @@ function texts(page) {
   return page['properties']['Nom']['title']
 }
 
+const plugins = [new AutoPlay(4000, "NEXT"),
+  new Arrow(),
+  new Pagination()
+]
 onMounted(() => {
-  events.value = getRandomItems(data.value?.pages ?? [],5)
+  events.value = getRandomItems(data.value?.pages ?? [], 5)
 })
 </script>
 <template>
@@ -40,12 +39,12 @@ onMounted(() => {
       @need-panel="e => {
       // ADD PANELS
     }"
-      v-else>
+      v-if="events.length > 0">
     <NuxtLink :to="`nos-evenements/details/${page.id}`"
               v-for="page in events"
               :key="page.id"
-         :style="`background-image: url('${image(page)}')`"
-         class="w-1/2 h-96 flex flex-col items-start justify-end bg-cover">
+              :style="`background-image: url('${image(page)}')`"
+              class="w-1/2 h-96 flex flex-col items-start justify-end bg-cover">
       <span class="text-4xl text-white uppercase font-bold p-3 mb-4">
         <BlockRichText :texts="texts(page)"/>
       </span>
@@ -56,6 +55,7 @@ onMounted(() => {
       <div class="flicking-pagination"></div>
     </template>
   </flicking>
+  <div v-else>Vide</div>
 </template>
 <style>
 @import url("@egjs/vue3-flicking/dist/flicking.css");
