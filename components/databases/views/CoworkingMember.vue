@@ -1,4 +1,5 @@
 <script setup>
+
 const props = defineProps({
   member: {type: Object, required: true},
 })
@@ -23,15 +24,23 @@ const activity = computed(() => {
   }
   return ''
 })
-const email = computed(() => {
-  if (properties.value['Email']['email']) {
-    return properties.value['Email']['email']
+const description = computed(() => {
+  if (properties.value['Description activité']) {
+    return properties.value['Description activité']
   }
   return null
 })
-const website = ''
-const title = ''
-const image = computed(() => 'https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60')
+const image = computed(() => {
+  if (properties.value['Photo']['files'].length > 0) {
+    return properties.value['Photo']['files'][0]['file']['url']
+  }
+
+  return 'https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'
+})
+const modalOpenSelected = ref('')
+watch(modalOpenSelected, (newValue) => {
+  console.log("66"+modalOpenSelected.value, newValue)
+})
 </script>
 <template>
   <li
@@ -40,38 +49,36 @@ const image = computed(() => 'https://images.unsplash.com/photo-1532417344469-36
       <img class="mx-auto h-32 w-32 flex-shrink-0 rounded-full" :src="image" alt=""/>
       <h3 class="mt-6 text-sm font-medium text-gray-900">{{ lastName }}</h3>
       <dl class="mt-1 flex flex-grow flex-col justify-between">
-        <dt class="sr-only">Title</dt>
+        <dt class="sr-only">Prénom</dt>
         <dd class="text-sm text-gray-500">{{ firstName }}</dd>
-        <dt class="sr-only">Role</dt>
+        <dt class="sr-only">Société</dt>
         <dd class="mt-3">
                 <span
                     class="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                  {{ activity }}</span>
+                  {{ activity }}
+                </span>
         </dd>
       </dl>
     </div>
     <div>
       <div class="-mt-px flex divide-x divide-gray-200">
-        <div class="flex w-0 flex-1">
-          <a :href="`mailto:${email}`"
-             class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
-            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-              <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
-              <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
-            </svg>
-            Email
-          </a>
-        </div>
         <div class="-ml-px flex w-0 flex-1">
-          <a :href="`tel:${website}`"
-             class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
-            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-              <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd" />
+          <button type="button" @click="modalOpenSelected=firstName"
+                  class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-meeple">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path
+                  d="M9 20h-5a1 1 0 0 1 -1 -1c0 -2 3.378 -4.907 4 -6c-1 0 -4 -.5 -4 -2c0 -2 4 -3.5 6 -4c0 -1.5 .5 -4 3 -4s3 2.5 3 4c2 .5 6 2 6 4c0 1.5 -3 2 -4 2c.622 1.093 4 4 4 6a1 1 0 0 1 -1 1h-5c-1 0 -2 -4 -3 -4s-2 4 -3 4z"/>
             </svg>
-            Call
-          </a>
+            En savoir plus
+          </button>
         </div>
       </div>
+      <DatabasesViewsCoworkingMemberModal :member v-model:modal-open-selected="modalOpenSelected"
+                                          :key="firstName"
+                                          v-show="modalOpenSelected === firstName"/>
     </div>
   </li>
 </template>
