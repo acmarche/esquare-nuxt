@@ -4,14 +4,14 @@ const title = ref('')
 useHead({
   link: [
     {rel: 'apple-touch-icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/apple-touch-icon.png`, sizes: '180x180'},
-    {rel: 'icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/favicon-32x32.png`, sizes: '32x32'},
-    {rel: 'icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/favicon-16x16.png`, sizes: '16x16'},
+    {rel: 'icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/favicon-48x48.png`, sizes: '48x48'},
+    {rel: 'icon', type: 'image/svg+xml', href: `${config.public.NUXT_APP_BASE_URL}favicon/favicon.svg`},
     {rel: 'manifest', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/site.webmanifest`}
   ],
 })
 useSeoMeta({
-  titleTemplate: (title) => `${title} | E-square - Marche-en-Famenne - Tiers lieu`,
-  ogTitle: 'My Amazing Site',
+  titleTemplate: (title) => `${title} | E-Square - Marche-en-Famenne - Tiers lieu`,
+  ogTitle: 'E-Square',
   description: 'This is my amazing site, let me tell you all about it.',
   ogDescription: 'This is my amazing site, let me tell you all about it.',
   ogImage: 'https://esquare.marche.be/new/images/batimentaerien.jpg',
@@ -21,7 +21,7 @@ useSeoMeta({
   twitterTitle: 'string',
   twitterDescription: 'string',
   twitterImage: 'string',
-  applicationName: 'E-square',
+  applicationName: 'E-Square',
 })
 </script>
 <template>
