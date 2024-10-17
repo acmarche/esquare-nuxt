@@ -1,25 +1,28 @@
 <script setup>
-const props = defineProps({
-  block: {
+const {property} = defineProps({
+  property: {
     type: Object
   }
 })
 const caption = computed(function () {
-  if (props.block.image.caption?.length > 0) {
-    return props.block.image.caption[0].text.content
+  if (property[property.type].caption?.length > 0) {
+    return property[property.type].caption[0].text.content
   }
   return null
 })
 const url = computed(function () {
-  if (props.block.image.type === 'file') {
-    return props.block.image.file.url
+  if (property.type === 'file') {
+    return property[property.type]['url']
   }
-  return props.block.image.external.url
+  if (property.type === 'url') {
+    return property[property.type].url
+  }
+  return property[property.type].external.url
 })
 </script>
 <template>
   <figure>
-    <img :src="url" alt=""/>
+     <img :src="url" alt=""/>
     <span class="" v-if="caption">{{ caption }}</span>
   </figure>
 </template>

@@ -19,8 +19,8 @@ useSeoMeta({
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <div v-for="block in data.blocks" :key="block.id">
-        <ArticleBlockNotion :block/>
+      <div v-for="property in data.blocks" :key="property.id">
+        <ArticleRenderBlock :property/>
       </div>
     </div>
   </BaseLayout>

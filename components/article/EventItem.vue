@@ -6,7 +6,7 @@ const {page} = defineProps({
     required: true
   }
 })
-const texts = computed(() => page['properties']['Nom']['title'])
+const nom = computed(() => page['properties']['Nom'])
 const dates = computed(() => {
   const dateObject = page['properties']['Date']
   const startDate = new Date(dateObject.date.start)
@@ -35,7 +35,7 @@ const image = computed(() => {
                style="color: rgb(254, 253, 232);">
             {{ dates }}
             <br/>
-            <BlockRichText :texts="texts"/>
+            <BlockRichText :property="nom"/>
           </div>
         </div>
       </div>

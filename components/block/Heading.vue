@@ -1,11 +1,11 @@
 <script setup>
-const props = defineProps({
-  block: {
+const {property} = defineProps({
+  property: {
     type: Object
   }
 })
 const h = computed(() => {
-  const match = props.block.type.match(/heading_(\d+)/)
+  const match = property.type.match(/heading_(\d+)/)
   return match ? `h${match[1]}` : 'h2'
 })
 </script>
@@ -17,7 +17,7 @@ const h = computed(() => {
       aria-hidden="true"
       class="h-0.5 grow rounded bg-gray-200"></span>
     <span class="mx-3 text-4xl font-semibold">
-      <BlockRichText :texts="block[block.type].rich_text"/>
+      <BlockRichText :property/>
     </span>
     <span
         aria-hidden="true"

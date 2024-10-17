@@ -11,8 +11,10 @@ const {
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      Les machines du FabLab
-      <DatabasesViewsMachineItem v-for="machine in data?.pages ?? []" :key="machine.id" :machine/>
+      <WidgetsTitle>Les machines du FabLab</WidgetsTitle>
+      <div class="grid grid-cols-2 gap-2">
+        <DatabasesViewsMachineItem v-for="machine in data?.pages ?? []" :key="machine.id" :machine/>
+      </div>
     </div>
   </section>
 </template>

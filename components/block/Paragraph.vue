@@ -1,12 +1,12 @@
 <script setup>
 defineProps({
-  block: {
+  property: {
     type: Object
   }
 })
 </script>
 <template>
   <div class="prose lg:prose-xl">
-    <BlockRichText :texts="block[block.type].rich_text"/>
+    <BlockRichText :property />
   </div>
 </template>

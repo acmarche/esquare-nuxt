@@ -13,8 +13,8 @@ const {
     <div class="flex flex-col gap-3" v-else>
       <div v-for="page in data?.pages ?? []" :key="page.id" class="">
        <div class="grid grid-cols-2 items-center gap-2" >
-         <ArticleBlockNotion :block="page.properties['Label']"/>
-         <ArticleBlockNotion :block="page.properties['Valeur']"/>
+         <ArticleRenderBlock :property="page.properties['Label']"/>
+         <ArticleRenderBlock :property="page.properties['Valeur']"/>
        </div>
       </div>
     </div>

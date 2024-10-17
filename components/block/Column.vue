@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   column: {
     type: Object,
     required: true
@@ -8,8 +8,8 @@ const props = defineProps({
 </script>
 <template>
   <div class="min-h-20 prose lg:prose-xl flex flex-row items-center">
-    <div v-for="block in column.blocks" :key="block.id">
-      <ArticleBlockNotion :block/>
+    <div v-for="property in column.blocks" :key="property.id">
+      <ArticleRenderBlock :property/>
     </div>
   </div>
 </template>

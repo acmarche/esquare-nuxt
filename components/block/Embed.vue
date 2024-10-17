@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  block: {
+  property: {
     type: Object
   }
 })

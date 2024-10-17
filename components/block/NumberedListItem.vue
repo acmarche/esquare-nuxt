@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  block: {
+  property: {
     type: Object
   }
 })
@@ -8,7 +8,7 @@ defineProps({
 <template>
   <li
       class="prose lg:prose-xl list-decimal "
-      v-if="block">
-    <BlockRichText :texts="block[block.type].rich_text"/>
+      v-if="property">
+    <BlockRichText :property />
   </li>
 </template>

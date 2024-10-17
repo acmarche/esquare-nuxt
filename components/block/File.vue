@@ -1,11 +1,11 @@
 <script setup>
-const props = defineProps({
+const {file} = defineProps({
   file: {
     type: Object
   }
 })
-const url = computed(() => props.file.file.url)
-const name = computed(() => props.file.name)
+const url = computed(() => file.file.url)
+const name = computed(() => file.name)
 </script>
 <template>
   <a :href="url" :download="name">

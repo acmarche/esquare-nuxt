@@ -1,18 +1,18 @@
 <script setup>
-const props = defineProps({
-  block: {
+const {property} = defineProps({
+  property: {
     type: Object
   }
 })
 const color = computed(() => {
-  return props.block.callout.color
+  return property.callout.color
 })
 </script>
 <template>
   <div class="min-h-20 prose lg:prose-xl flex flex-row items-center"
        :class="`${color}`">
-    <BlockIconOrEmoji :block/>
-    <BlockRichText :texts="block[block.type].rich_text"/>
+    <BlockIconOrEmoji :property/>
+    <BlockRichText :property/>
   </div>
 </template>
 <style>

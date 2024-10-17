@@ -21,8 +21,8 @@ useHead({
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
-      <div v-for="block in data.blocks" :key="block.id">
-        <ArticleBlockNotion :block/>
+      <div v-for="property in data.blocks" :key="property.id">
+        <ArticleRenderBlock :property/>
       </div>
     </div>
   </BaseLayout>

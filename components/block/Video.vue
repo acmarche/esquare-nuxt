@@ -1,14 +1,14 @@
 <script setup>
-const props = defineProps({
-  block: {
+const {property} = defineProps({
+  property: {
     type: Object
   }
 })
 const url = computed(() => {
-  if (props.block.video.type === 'external') {
-    return props.block.video.external?.url
+  if (property.video.type === 'external') {
+    return property.video.external?.url
   }
-  return props.block.video.file?.url
+  return property.video.file?.url
 })
 const caption = computed(() => '')
 //https://www.youtube.com/embed/vO-1eseQ-kc

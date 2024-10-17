@@ -54,14 +54,14 @@ const dates = computed(() => {
         <div class="flex flex-col">
           <div class="grid grid-cols-2 mb-3 border-b-esquare-yellow border-b-2" v-for="organisateur in organisateurs" :key="organisateur.id">
             <div>
-              <BlockRenderBlock :property="organisateur['properties']['Nom']"/>
+              <ArticleRenderBlock :property="organisateur['properties']['Nom']"/>
             </div>
             <div>
-              <BlockRenderBlock :property="organisateur['properties']['Responsable']"/>
+              <ArticleRenderBlock :property="organisateur['properties']['Responsable']"/>
               <span>Téléphone</span>
-              <BlockRenderBlock :property="organisateur['properties']['Téléphone']"/>
+              <ArticleRenderBlock :property="organisateur['properties']['Téléphone']"/>
               <span>E-mail</span>
-              <BlockRenderBlock :property="organisateur['properties']['E-mail']"/>
+              <ArticleRenderBlock :property="organisateur['properties']['E-mail']"/>
             </div>
           </div>
         </div>

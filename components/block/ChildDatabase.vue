@@ -1,6 +1,6 @@
 <script setup>
-const props = defineProps({
-  block: {
+const {property} = defineProps({
+  property: {
     type: Object
   }
 })
@@ -10,11 +10,9 @@ const {
   data,
   error
 } = databaseComposeGet(props.block.id)
-onMounted(() => {
 
-})
 const items = computed(() => {
-  props.block.database.results
+  property.database.results
 })
 
 </script>
