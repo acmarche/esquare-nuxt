@@ -9,7 +9,7 @@ const texts = computed(() => {
   if (property.type === 'title') {
     return property[property.type]
   }
-  if (property.type === 'rich_text') {
+  if (property.type === 'rich_text' || property.type === 'heading_1' || property.type === 'heading_2' || property.type === 'heading_3') {
     return property[property.type]['rich_text']
   }
   return []

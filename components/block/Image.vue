@@ -17,6 +17,9 @@ const url = computed(function () {
   if (property.type === 'url') {
     return property[property.type].url
   }
+  if (property.type === 'image') {
+    return property[property.type]['file'].url
+  }
   return property[property.type].external.url
 })
 </script>
