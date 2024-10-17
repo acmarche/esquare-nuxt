@@ -22,7 +22,7 @@ const cookiesOpen = useCookie('cookiesOpen', {
     <HomepageServices/>
     <section class="container mx-auto">
       <WidgetsTitle>Nos évènements</WidgetsTitle>
-      <NuxtLink to="nos-evenements" class="flex my-3 mx-auto text-xl">
+      <NuxtLink to="nos-evenements" class="flex items-center w-52 my-3 mx-auto text-xl">
         Tous nos évènements
       </NuxtLink>
       <HomepageEvents/>

@@ -51,18 +51,18 @@ export function getToday() {
     return new Date()
 }
 
-export function eventDate(startDate, endDate, addLe = false) {
+export function eventDate(startDate, endDate, addLe = false, hours = false) {
 
-    const hourBegin = formatDate(startDate, 'H')
     let hoursString = ''
-
-    if (hourBegin) {
-        const hourEnd = formatDate(endDate, 'H')
-        if (hourEnd) {
-            hoursString = formatDate(startDate, 'H:mm') + " - " + formatDate(endDate, 'H:mm')
-        }
-        else {
-             hoursString = formatDate(startDate, 'H:mm')
+    if (hours) {
+        const hourBegin = formatDate(startDate, 'H')
+        if (hourBegin) {
+            const hourEnd = formatDate(endDate, 'H')
+            if (hourEnd) {
+                hoursString = formatDate(startDate, 'H:mm') + " - " + formatDate(endDate, 'H:mm')
+            } else {
+                hoursString = formatDate(startDate, 'H:mm')
+            }
         }
     }
 

@@ -14,7 +14,7 @@ const dates = computed(() => {
   if (dateObject.date.end) {
     endDate = new Date(dateObject.date.end)
   }
-  return eventDate(startDate, endDate)
+  return eventDate(startDate, endDate, false,false)
 })
 const image = computed(() => {
   if (page['properties']['ImageCouvertureCarre']) {
@@ -25,7 +25,7 @@ const image = computed(() => {
 })
 </script>
 <template>
-  <NuxtLink :to="`nos-evenements/details/${page.id}`" class="group">
+  <NuxtLink :to="`nos-evenements/details/${page.id}`" class="block group my-2 mx-2 lg:my-0 lg:mx-0">
     <div
         class="card-shadow rounded-2xl p-0 bg-cover bg-center h-96 relative overflow-hidden transition duration-300 ease-out will-change-transform group-hover:scale-110"
         :style="`background-image: url('${image}');`">
@@ -40,8 +40,5 @@ const image = computed(() => {
         </div>
       </div>
     </div>
-    <!-- <div class="mt-4 mb-3 text-saffron-950 group-hover:text-esquare-green-dark">
-      <BlockRichText :texts="descriptions"/>
-    </div> -->
   </NuxtLink>
 </template>

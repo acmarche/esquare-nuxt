@@ -15,8 +15,8 @@ function image(page) {
   return files.length > 0 ? files[0]['file']['url'] : '/images/news/book.jpg'
 }
 
-function texts(page) {
-  return page['properties']['Nom']['title']
+function property(page) {
+  return page['properties']['Nom']
 }
 
 const plugins = [new AutoPlay(4000, "NEXT"),
@@ -44,9 +44,9 @@ onMounted(() => {
               v-for="page in events"
               :key="page.id"
               :style="`background-image: url('${image(page)}')`"
-              class="w-1/2 h-96 flex flex-col items-start justify-end bg-cover">
+              class="w-full md:w-1/2 h-96 flex flex-col items-start justify-end bg-cover mx-1">
       <span class="text-4xl text-white uppercase font-bold p-3 mb-4">
-        <BlockRichText :texts="texts(page)"/>
+        <BlockRichText :property="property(page)"/>
       </span>
     </NuxtLink>
     <template #viewport>

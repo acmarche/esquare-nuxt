@@ -1,7 +1,8 @@
 <script setup>
 const {property} = defineProps({
   property: {
-    type: Object
+    type: Object,
+    required: true
   }
 })
 const texts = computed(() => {

@@ -24,9 +24,8 @@ const dates = computed(() => {
   if (dateObject.end) {
     endDate = new Date(dateObject.end)
   }
-  return eventDate(startDate, endDate, true)
+  return eventDate(startDate, endDate, true, true)
 })
-
 </script>
 <template>
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
