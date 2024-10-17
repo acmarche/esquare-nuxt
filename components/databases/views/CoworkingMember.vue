@@ -38,9 +38,6 @@ const image = computed(() => {
   return 'https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'
 })
 const modalOpenSelected = ref('')
-watch(modalOpenSelected, (newValue) => {
-  console.log("66"+modalOpenSelected.value, newValue)
-})
 </script>
 <template>
   <li
