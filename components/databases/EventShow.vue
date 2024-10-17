@@ -35,6 +35,14 @@ const dates = computed(() => {
             {{ dates }}
           </span>
         </div>
+        <div class="flex flex-col justify-center gap-2">
+          <h3 class="text-xl font-bold">Ou ?</h3>
+          <span class="">
+            A l'E-Square<br/>
+            Rue Victor Libert 36J<br/>
+            6900 Marche-en-Famenne
+          </span>
+        </div>
 
         <div class="flex flex-col justify-center gap-2" v-if="inscription.url">
           <h3 class="text-2xl font-bold">Inscription</h3>
@@ -52,16 +60,21 @@ const dates = computed(() => {
 
         <h3 class="text-2xl font-bold">Organisé par</h3>
         <div class="flex flex-col">
-          <div class="grid grid-cols-2 mb-3 border-b-esquare-yellow border-b-2" v-for="organisateur in organisateurs" :key="organisateur.id">
-            <div>
+          <div class="flex flex-col items-start mb-3 border-b-esquare-yellow border-b-2"
+               v-for="organisateur in organisateurs" :key="organisateur.id">
+            <div class="text-2xl text-esquare-brown">
               <ArticleRenderBlock :property="organisateur['properties']['Nom']"/>
             </div>
-            <div>
+            <div class="">
               <ArticleRenderBlock :property="organisateur['properties']['Responsable']"/>
-              <span>Téléphone</span>
-              <ArticleRenderBlock :property="organisateur['properties']['Téléphone']"/>
-              <span>E-mail</span>
-              <ArticleRenderBlock :property="organisateur['properties']['E-mail']"/>
+              <div class="grid grid-cols-2">
+                <span>Téléphone</span>
+                <ArticleRenderBlock :property="organisateur['properties']['Téléphone']"/>
+              </div>
+              <div class="grid grid-cols-2">
+                <span>E-mail</span>
+                <ArticleRenderBlock :property="organisateur['properties']['E-mail']"/>
+              </div>
             </div>
           </div>
         </div>
