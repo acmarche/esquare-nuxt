@@ -1,11 +1,11 @@
 <script setup>
-const route = useRoute()
+const id = useRoute().params.id
 const config = useRuntimeConfig()
 const {
   status,
   data,
   error
-} = pageComposeGet(route.params.id)
+} = pageComposeGet(id)
 const name = computed(() => data.value?.title ?? '')
 const cover = computed(() => data.value?.cover?.file?.url ?? null)
 const emoji = computed(() => null)
@@ -14,6 +14,7 @@ const breadcrumb = computed(() => data.value?.breadcrumb ?? [])
 useHead({
   title: () => name.value ?? ''
 })
+console.log(useRoute().params)
 </script>
 <template>
   <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :emoji :icon>
