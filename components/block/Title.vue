@@ -1,9 +1,10 @@
 <script setup>
-defineProps({
-  texts: {
-    type: Array
+const {property} = defineProps({
+  property: {
+    type: Object
   }
 })
+const texts = computed(() => property[property.type])
 let color = null
 
 function getColor(text) {

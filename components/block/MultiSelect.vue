@@ -1,8 +1,7 @@
 <script setup>
 defineProps({
-  values: {
-    type: Array,
-    default: []
+  property: {
+    type: Object,
   }
 })
 let color = null
@@ -13,7 +12,7 @@ function getColor(text) {
 }
 </script>
 <template>
-  <span v-for="value in values" :key="value.id" :style="value?.color ? `color:${value.color}` : ''" class="ml-2">
+  <span v-for="value in property[property.type]" :key="value.id" :style="value?.color ? `color:${value.color}` : ''">
     {{ value.name }}
   </span>
 </template>

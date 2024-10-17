@@ -17,8 +17,11 @@ const dates = computed(() => {
   return eventDate(startDate, endDate)
 })
 const image = computed(() => {
-  const files = page['properties']['ImageCouvertureCarre']['files']
-  return files.length > 0 ? files[0]['file']['url'] : '/images/news/book.jpg'
+  if (page['properties']['ImageCouvertureCarre']) {
+    const files = page['properties']['ImageCouvertureCarre']['files']
+    return files.length > 0 ? files[0]['file']['url'] : '/images/news/book.jpg'
+  }
+  return '/images/news/book.jpg'
 })
 </script>
 <template>
