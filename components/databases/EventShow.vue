@@ -8,11 +8,14 @@ const {page} = defineProps({
 const properties = computed(() => page.properties)
 const images = computed(() => properties.value['ImageCouvertureCarre']?.files ?? [])
 const rooms = computed(() => {
-  return page.metas['Salles'].map((item) => {
-    return item['properties']['Nom']['title'][0]['plain_text']
-  })
+  if (page.metas['Salles']) {
+    return page.metas['Salles'].map((item) => {
+      return item['properties']['Nom']['title'][0]['plain_text']
+    })
+  }
+  return []
 })
-const organisateurs = computed(() => page.metas['Listing organisateurs'])
+const organisateurs = computed(() => page.metas['Listing organisateurs'] ?? [])
 const inscription = computed(() => properties.value['Lien inscription'])
 const dates = computed(() => {
   const dateObject = properties.value['Date']['date']
@@ -49,7 +52,7 @@ const dates = computed(() => {
           <NuxtLink :to="inscription.url" target="_blank" class="">Je m'inscris en ligne</NuxtLink>
         </div>
 
-        <div class="flex flex-col justify-center gap-2">
+        <div class="flex flex-col justify-center gap-2" v-if="rooms.length > 0">
           <h3 class="text-2xl font-bold">Dans quelle(s) salle(s) ?</h3>
           <div class="flex flex-row gap-2">
             <span class="text-esquare-blue text-lg mr-2" v-for="room in rooms" :key="room">
@@ -58,22 +61,24 @@ const dates = computed(() => {
           </div>
         </div>
 
-        <h3 class="text-2xl font-bold">Organisé par</h3>
-        <div class="flex flex-col">
-          <div class="flex flex-col items-start mb-3 border-b-esquare-yellow border-b-2"
-               v-for="organisateur in organisateurs" :key="organisateur.id">
-            <div class="text-2xl text-esquare-brown">
-              <ArticleRenderBlock :property="organisateur['properties']['Nom']"/>
-            </div>
-            <div class="">
-              <ArticleRenderBlock :property="organisateur['properties']['Responsable']"/>
-              <div class="grid grid-cols-2">
-                <span>Téléphone</span>
-                <ArticleRenderBlock :property="organisateur['properties']['Téléphone']"/>
+        <div v-if="organisateurs.length > 0">
+          <h3 class="text-2xl font-bold">Organisé par</h3>
+          <div class="flex flex-col">
+            <div class="flex flex-col items-start mb-3 border-b-esquare-yellow border-b-2"
+                 v-for="organisateur in organisateurs" :key="organisateur.id">
+              <div class="text-2xl text-esquare-brown">
+                <ArticleRenderBlock :property="organisateur['properties']['Nom']"/>
               </div>
-              <div class="grid grid-cols-2">
-                <span>E-mail</span>
-                <ArticleRenderBlock :property="organisateur['properties']['E-mail']"/>
+              <div class="">
+                <ArticleRenderBlock :property="organisateur['properties']['Responsable']"/>
+                <div class="grid grid-cols-2">
+                  <span>Téléphone</span>
+                  <ArticleRenderBlock :property="organisateur['properties']['Téléphone']"/>
+                </div>
+                <div class="grid grid-cols-2">
+                  <span>E-mail</span>
+                  <ArticleRenderBlock :property="organisateur['properties']['E-mail']"/>
+                </div>
               </div>
             </div>
           </div>
