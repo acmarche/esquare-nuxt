@@ -4,7 +4,15 @@ const {property} = defineProps({
     type: Object
   }
 })
-const texts = computed(() => property[property.type]['rich_text'] ?? property[property.type])
+const texts = computed(() => {
+  if (property.type === 'title') {
+    return property[property.type]
+  }
+  if (property.type === 'rich_text') {
+    return property[property.type]['rich_text']
+  }
+  return []
+})
 let color = null
 
 function getColor(text) {
