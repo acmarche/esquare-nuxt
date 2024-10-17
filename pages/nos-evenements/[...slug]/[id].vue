@@ -21,7 +21,7 @@ useSeoMeta({
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       <div v-for="page in data.pages" :key="page.id">
-        <DatabasesEventShow :page/>
+        <DatabasesEventShow :page />
       </div>
     </div>
   </BaseLayout>
