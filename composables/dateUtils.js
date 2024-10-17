@@ -52,9 +52,23 @@ export function getToday() {
 }
 
 export function eventDate(startDate, endDate, addLe = false) {
-    if (endDate && formatDate(startDate,'d MMMM yyyy') !== format(endDate,'d MMMM yyyy')) {
-        return `Du ${startDate.getDate()}-${startDate.getMonth() + 1} au ${endDate.getDate()}-${endDate.getMonth() + 1} ${endDate.getFullYear()}`;
+
+    const hourBegin = formatDate(startDate, 'H')
+    let hoursString = ''
+
+    if (hourBegin) {
+        const hourEnd = formatDate(endDate, 'H')
+        if (hourEnd) {
+            hoursString = formatDate(startDate, 'H:mm') + " - " + formatDate(endDate, 'H:mm')
+        }
+        else {
+             hoursString = formatDate(startDate, 'H:mm')
+        }
+    }
+
+    if (endDate && formatDate(startDate, 'd MMMM yyyy') !== format(endDate, 'd MMMM yyyy')) {
+        return `Du ${startDate.getDate()}-${startDate.getMonth() + 1} au ${endDate.getDate()}-${endDate.getMonth() + 1} ${endDate.getFullYear()} ${hoursString}`;
     } else {
-        return `${addLe? 'Le ': ''}${startDate.getDate()}-${startDate.getMonth() + 1}-${startDate.getFullYear()}`
+        return `${addLe ? 'Le ' : ''}${startDate.getDate()}-${startDate.getMonth() + 1}-${startDate.getFullYear()} ${hoursString}`
     }
 }
