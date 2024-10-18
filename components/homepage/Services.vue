@@ -5,7 +5,6 @@ const {
   data,
   error
 } = pageComposeGet(config.public.NOTION_SERVICES_PAGE_ID)
-const items = ref([])
 </script>
 <template>
   <section class="container mx-auto ">
