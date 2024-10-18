@@ -40,15 +40,13 @@ onMounted(() => {
       // ADD PANELS
     }"
       v-if="events.length > 0">
-    <NuxtLink :to="`nos-evenements/details/${page.id}`"
-              v-for="page in events"
-              :key="page.id"
-              :style="`background-image: url('${image(page)}')`"
-              class="w-full md:w-1/2 h-96 flex flex-col items-start justify-end bg-cover mx-1">
-      <span class="text-4xl text-white uppercase font-bold p-3 mb-4">
-        <BlockRichText :property="property(page)"/>
-      </span>
-    </NuxtLink>
+    <div v-for="page in events"
+         :key="page.id"
+         class="w-full md:w-1/2 h-[30rem] flex flex-col mx-1">
+      <NuxtLink :to="`nos-evenements/details/${page.id}`">
+        <img :src="image(page)" class="object-cover">
+      </NuxtLink>
+    </div>
     <template #viewport>
       <span class="flicking-arrow-prev"></span>
       <span class="flicking-arrow-next"></span>

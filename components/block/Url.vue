@@ -9,5 +9,6 @@ defineProps({
 })
 </script>
 <template>
+  <!-- https://flowbite.com/docs/components/buttons/ -->
   <NuxtLink :to="`${property.url}`" target="_blank">{{ name }}</NuxtLink>
 </template>
