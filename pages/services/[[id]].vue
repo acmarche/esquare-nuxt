@@ -13,6 +13,6 @@ useSeoMeta({
 </script>
 <template>
   <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :icon :status :error>
-    <HomepageServices v-else/>
+    <HomepageServices />
   </BaseLayout>
 </template>
