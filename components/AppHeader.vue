@@ -13,7 +13,7 @@ const mobileMenu = ref(false)
       <NuxtImg src="https://e-square.marche.be/new/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
                class="h-8 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
     </NuxtLink>
-    <div class="HeaderContact flex items-center">
+    <div class="HeaderContact flex items-center justify-self-center">
       <HeaderContactLink v-model:mobile-menu="mobileMenu"/>
     </div>
     <div class="buttonMenu z-30 flex items-center justify-self-end">
@@ -27,8 +27,16 @@ const mobileMenu = ref(false)
 <style>
 .gridArea {
   grid-template-areas:
-              "logo button"
+              "logo menu"
               "contact social";
+}
+
+/* md */
+@media (min-width: 768px) {
+  .gridArea {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "logo contact menu social";
+  }
 }
 
 .logoEsquare {
@@ -36,8 +44,7 @@ const mobileMenu = ref(false)
 }
 
 .buttonMenu {
-  grid-area: button;
-  text-align: center;
+  grid-area: menu;
 }
 
 .HeaderContact {
