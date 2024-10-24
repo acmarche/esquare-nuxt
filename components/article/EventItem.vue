@@ -14,7 +14,7 @@ const dates = computed(() => {
   if (dateObject.date.end) {
     endDate = new Date(dateObject.date.end)
   }
-  return eventDate(startDate, endDate, false,false)
+  return eventDate(startDate, endDate, false, false)
 })
 const image = computed(() => {
   if (page['properties']['ImageCouvertureCarre']) {
@@ -25,20 +25,22 @@ const image = computed(() => {
 })
 </script>
 <template>
-  <NuxtLink :to="`nos-evenements/details/${page.id}`" class="block group my-2 mx-2 lg:my-0 lg:mx-0">
+  <NuxtLink :to="`nos-evenements/details/${page.id}`"
+            class="group relative mx-auto block w-full overflow-hidden rounded-lg ring-8 ring-white/50 transition ease-in active:opacity-75">
+    <div class="aspect-h-4 aspect-w-3 scale-125 transition duration-300 ease-in group-hover:scale-100">
+      <img class="rounded-lg object-cover"
+           :src="image"
+           alt="Mountain Peak"/>
+    </div>
     <div
-        class="card-shadow rounded-2xl p-0 bg-cover bg-center h-96 relative overflow-hidden transition duration-300 ease-out will-change-transform group-hover:scale-110"
-        :style="`background-image: url('${image}');`">
-      <div class="absolute inset-0" style="background-image: linear-gradient(transparent 0%, rgb(131, 81, 16) 100%);">
-        <div class="h-full flex">
-          <div class="leading-none p-6 rounded-2xl mt-auto mb-2 text-3xl font-semibold drop-shadow-sm tracking-tight"
-               style="color: rgb(254, 253, 232);">
-            {{ dates }}
-            <br/>
-            <BlockRichText :property="nom"/>
-          </div>
-        </div>
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/90 opacity-50 transition group-hover:opacity-100"></div>
+    <div
+        class="absolute inset-0 flex flex-col justify-end  transition duration-200 ease-in ">
+      <div class="text-white uppercase bg-black/50 h-20 p-3">
+        <h3 class="block text-3xl font-bold"><BlockRichText :property="nom"/></h3>
+        <span class="block text-2xl font-bold">{{dates}}</span>
       </div>
     </div>
+
   </NuxtLink>
 </template>

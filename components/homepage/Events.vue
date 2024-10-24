@@ -25,18 +25,17 @@ watch(tagSelected, (newTag) => {
 onMounted(() => {
   events.value = data.value?.pages ?? []
 })
+//https://play.tailwindcss.com/KlveA5ADug todo 
 </script>
 <template>
-  <section class="">
-    <WidgetsLoader v-if="status === 'pending'"/>
-    <WidgetsError v-else-if="error" :error/>
-    <div v-else>
-      <div class="flex flex-col items-center">
-        <HomepageTags :data v-model:tag-selected="tagSelected"/>
-      </div>
-      <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
-        <ArticleEventItem v-for="page in events" :key="page.id" :page/>
-      </div>
+  <WidgetsLoader v-if="status === 'pending'"/>
+  <WidgetsError v-else-if="error" :error/>
+  <section class="flex flex-col" v-else>
+    <div class="flex flex-col items-center">
+      <HomepageTags :data v-model:tag-selected="tagSelected"/>
+    </div>
+    <div class="mx-auto grid w-full max-w-fit grid-cols-1 gap-4 md:grid-cols-3">
+      <ArticleEventItem v-for="page in events" :key="page.id" :page/>
     </div>
   </section>
 </template>
