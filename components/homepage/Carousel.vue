@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Flicking from "@egjs/vue3-flicking";
 import {AutoPlay, Arrow, Pagination} from "@egjs/flicking-plugins";
-import {getRandomItems} from "~/composables/cacheUtil.js";
 
 const events = ref([])
 const {
