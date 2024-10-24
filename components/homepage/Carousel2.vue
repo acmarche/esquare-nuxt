@@ -1,7 +1,8 @@
 <script setup>
 import emblaCarouselVue from 'embla-carousel-vue'
 import Autoplay from 'embla-carousel-autoplay'
-const [emblaRef, emblaApi] = emblaCarouselVue({loop: false}, [Autoplay()])
+
+const [emblaRef, emblaApi] = emblaCarouselVue({loop: true, dragFree: true}, [Autoplay({delay: 6000})])
 
 const events = ref([])
 const {
@@ -19,6 +20,16 @@ function property(page) {
   return page['properties']['Nom']
 }
 
+function scrollPrev() {
+  if (!emblaApi.value) return
+  emblaApi.value.scrollPrev()
+}
+
+function scrollNext() {
+  if (!emblaApi.value) return
+  emblaApi.value.scrollNext()
+}
+
 onMounted(() => {
   events.value = getRandomItems(data.value?.pages ?? [], 3)
   if (emblaApi.value) {
@@ -29,20 +40,21 @@ onMounted(() => {
 <template>
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error" :error/>
-  <div class="embla" ref="emblaRef" v-else>
-    <div class="embla__container flex flex-row h-80">
+  <div class="embla overflow-hidden" ref="emblaRef" v-else>
+    <div class="embla__container flex">
       <div v-for="page in events" :key="page.id"
-           class="embla__slide  basis-1/3">
-        <img :src="image(page)" class="object-cover" alt="img">
+           class="embla__slide">
+        <img :src="image(page)" class="object-cover  " alt="img">
       </div>
     </div>
+    <button @click="scrollPrev">Avant</button>
+    <button @click="scrollNext">Après</button>
   </div>
 </template>
 <style>
-.embla {
-  overflow: hidden;
-}
+/* todo xs 100% */
 .embla__slide {
   flex: 0 0 80%;
+  min-width: 0;
 }
 </style>
