@@ -41,9 +41,9 @@ onMounted(() => {
       v-if="events.length > 0">
     <div v-for="page in events"
          :key="page.id"
-         class="w-full md:w-1/2 h-[30rem] flex flex-col mx-1">
+         class="flex shrink-0 grow-0 basis-full md:basis-[34%]">
       <NuxtLink :to="`nos-evenements/details/${page.id}`">
-        <img :src="image(page)" class="object-cover">
+        <img :src="image(page)" class="object-cover aspect-square md:h-[40rem] " alt="img">
       </NuxtLink>
     </div>
     <template #viewport>
