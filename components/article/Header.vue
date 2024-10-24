@@ -28,11 +28,11 @@ const coverComputed = computed(() => cover ?? config.public.DEFAULT_COVER)
              alt="cover"/>
     <!-- ICON -->
     <div class="max-w-32 ms-2 md:ms-24 -mt-12">
-      <NuxtImg class="h-24 w-24 sm:h-20 sm:w-20 animate-bounce-in-top duration-700"
+      <NuxtImg class="h-16 w-16 md:h-16 md:w-16 animate-bounce-in-top duration-700"
            :src="icon"
            alt=""
            v-if="icon"/>
-      <div class=" text-8xl sm:text-7xl animate-bounce-in-top duration-700"
+      <div class="text-4xl md:text-8xl animate-bounce-in-top duration-700"
            v-if="emoji">
         {{ emoji }}
       </div>
