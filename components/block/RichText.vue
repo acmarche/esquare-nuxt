@@ -6,7 +6,6 @@ const {property} = defineProps({
   }
 })
 const texts = computed(() => {
-  console.log(property)
   if (property.type === 'title') {
     if (property[property.type]['rich_text']) {
       return property[property.type]['rich_text']
@@ -18,18 +17,14 @@ const texts = computed(() => {
   }
   return property[property.type]['rich_text']
 })
-
 const color = ref(null)
-
 function getColor(text) {
   color.value = extractColor(text)
   return color
 }
-
 function hasLink(text) {
   return text.href !== null
 }
-
 </script>
 <template>
   <template v-for="text in texts" :key="text" v-if="texts && texts.length > 0">
