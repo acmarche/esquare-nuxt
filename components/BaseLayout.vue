@@ -50,7 +50,7 @@ const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
       <slot name="title">
         <div class="flex flex-col md:flex-row space-between">
           <ArticleTitle>{{ pageTitle }}</ArticleTitle>
-          <WidgetsShareBox/>
+          <ArticleShareBox/>
         </div>
       </slot>
       <WidgetsError :error v-if="error"/>
