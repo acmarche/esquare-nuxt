@@ -12,10 +12,10 @@ const icon = computed(() => {
 })
 </script>
 <template>
-  <img class="h-24 w-24 sm:h-20 sm:w-20 animate-bounce-in-top duration-700"
+  <NuxtImg class="h-24 w-24 sm:h-20 sm:w-20 animate-bounce-in-top duration-700"
        :src="icon"
        alt=""
-       v-if="icon">
+       v-if="icon"/>
   <div class=" text-8xl sm:text-7xl animate-bounce-in-top duration-700" v-else-if="emoji">
     {{ emoji }}
   </div>

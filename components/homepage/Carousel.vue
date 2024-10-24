@@ -43,7 +43,7 @@ onMounted(() => {
          :key="page.id"
          class="flex shrink-0 grow-0 basis-full md:basis-[34%]">
       <NuxtLink :to="`nos-evenements/details/${page.id}`">
-        <img :src="image(page)" class="object-cover aspect-square md:h-[40rem] " alt="img">
+        <NuxtImg :src="image(page)" class="object-cover aspect-square md:h-[40rem] " alt="img"/>
       </NuxtLink>
     </div>
     <template #viewport>

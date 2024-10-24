@@ -25,7 +25,7 @@ const url = computed(function () {
 </script>
 <template>
   <figure>
-     <img :src="url" alt=""/>
+     <NuxtImg :src="url" alt=""/>
     <span class="" v-if="caption">{{ caption }}</span>
   </figure>
 </template>

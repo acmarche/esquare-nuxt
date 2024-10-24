@@ -120,7 +120,7 @@ const image = computed(() => {
               class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
             <div class="flex flex-col sm:items-start">
               <div class="flex flex-col items-center mx-auto mb-3">
-                <img class="mx-auto h-32 w-32 flex-shrink-0 rounded-full" :src="image" alt=""/>
+                <NuxtImg class="mx-auto h-32 w-32 flex-shrink-0 rounded-full" :src="image" alt=""/>
                 <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                   <h3 class="text-2xl font-semibold leading-6 text-gray-900" id="modal-title">
                     {{ firstName }} {{ lastName }}

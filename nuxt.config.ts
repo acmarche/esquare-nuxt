@@ -21,10 +21,17 @@ export default defineNuxtConfig({
         },
         pageTransition: {name: 'page', mode: 'out-in'}
     },
+    // Configure IPX here
+    image: {
+        domains: ['picsum.photos', 'www.google.com', 'amazonaws.com'],
+        provider: 'ipx',
+        quality: 80,
+        format: ['webp']
+    },
     runtimeConfig: {
         public: {
             API_URL: process.env.API_URL,
-            DEFAULT_COVER: '/images/cover-e-Square.png',
+            DEFAULT_COVER: 'https://e-square.marche.be/new/images/cover-e-Square.png',
             DEFAULT_ICON: 'https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg',
             NOTION_PARTNERS_DATABASE_ID: process.env.NOTION_PARTNERS_DATABASE_ID,
             NOTION_RGPD_PAGE_ID: process.env.NOTION_RGPD_PAGE_ID,

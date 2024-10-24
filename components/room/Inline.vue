@@ -24,7 +24,7 @@ const image = computed(() => {
 <template>
   <div
       class="flex flex-col sm:flex-row items-center sm:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
-    <img
+    <NuxtImg
         class="w-full md:w-1/2 mb-2 sm:mb-0"
         :src="image" alt="room"/>
     <div class="flex flex-col items-center">

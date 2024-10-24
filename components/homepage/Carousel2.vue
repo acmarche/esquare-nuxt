@@ -44,7 +44,7 @@ onMounted(() => {
     <div class="embla__container flex">
       <div v-for="page in events" :key="page.id"
            class="embla__slide flex shrink-0 grow-0 basis-[35%]">
-        <img :src="image(page)" class="object-cover aspect-square h-[40rem] " alt="img">
+        <NuxtImg :src="image(page)" class="object-cover aspect-square h-[40rem] " alt="img"/>
       </div>
     </div>
   </div>

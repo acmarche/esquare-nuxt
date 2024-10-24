@@ -23,7 +23,7 @@ const breadcrumb = [
                 target="_blank"
                 class="text-center">
         <div class="" v-for="(logo,index) in item.properties.Logo.files " :key="index">
-          <img :src="logo.file.url" alt="logo" class="h-24 w-auto hover:scale-110	transition-all duration-500">
+          <NuxtImg :src="logo.file.url" alt="logo" class="h-24 w-auto hover:scale-110	transition-all duration-500"/>
         </div>
       </NuxtLink>
     </div>

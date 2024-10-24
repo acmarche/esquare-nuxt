@@ -28,7 +28,7 @@ useSeoMeta({
           class="flex flex-col items-center group group-hover:text-esquare-green-dark text-center scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
         <NuxtLink :to="childPage.link"
                   class="text-7xl sm:text-8xl group-hover:text-esquare-green-dark">
-          <img :src="getIconPage(childPage)" class="w-24 h-24" alt="icon"/>
+          <NuxtImg :src="getIconPage(childPage)" class="w-24 h-24" alt="icon"/>
         </NuxtLink>
         <div class="prose xl:prose-xl flex flex-col p-3 md:p-6">
           <NuxtLink :to="childPage.link"

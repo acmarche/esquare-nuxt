@@ -86,12 +86,12 @@ const dates = computed(() => {
       </div>
       <div v-if="images.length > 0">
         <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100">
-          <img :src="images[0].file.url" alt="affiche" class="h-full w-full object-cover object-center"/>
+          <NuxtImg :src="images[0].file.url" alt="affiche" class="h-full w-full object-cover object-center"/>
         </div>
         <div class="mt-4 grid grid-cols-2 gap-4 sm:mt-6 sm:gap-6 lg:mt-8 lg:gap-8" v-if="images.length > 1">
           <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100" v-for="(image,index) in images"
                :key="index">
-            <img :src="image.file.url" alt="img" class="h-full w-full object-cover object-center"/>
+            <NuxtImg :src="image.file.url" alt="img" class="h-full w-full object-cover object-center"/>
           </div>
         </div>
       </div>

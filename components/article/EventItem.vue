@@ -28,17 +28,24 @@ const image = computed(() => {
   <NuxtLink :to="`nos-evenements/details/${page.id}`"
             class="group relative mx-auto block w-full overflow-hidden rounded-lg ring-8 ring-white/50 transition ease-in active:opacity-75">
     <div class="aspect-h-4 aspect-w-3 scale-125 transition duration-300 ease-in group-hover:scale-100">
-      <img class="rounded-lg object-cover"
-           :src="image"
-           alt="Mountain Peak"/>
+      <NuxtImg
+          class="rounded-lg object-cover"
+          :src="image"
+          :alt="nom['title'][0]['plain_text']"
+          width="1200"
+          densities="x1 x2"
+          :modifiers="{ grayscale: true}"
+      />
     </div>
     <div
         class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/90 opacity-50 transition group-hover:opacity-100"></div>
     <div
         class="absolute inset-0 flex flex-col justify-end  transition duration-200 ease-in ">
       <div class="text-white uppercase bg-black/50 h-20 p-3">
-        <h3 class="block text-3xl font-bold"><BlockRichText :property="nom"/></h3>
-        <span class="block text-2xl font-bold">{{dates}}</span>
+        <span class="block text-2xl font-bold">{{ dates }}</span>
+        <h3 class="block text-2xl font-bold">
+          <BlockRichText :property="nom"/>
+        </h3>
       </div>
     </div>
 

@@ -10,22 +10,24 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@egjs/vue3-flicking": "^4.11.4",
     "@egjs/flicking-plugins": "^4.7.1",
-    "@nuxt/image": "^1.7.0",
+    "@egjs/vue3-flicking": "^4.11.4",
+    "@nuxt/image": "^1.8.1",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@tabler/icons-vue": "^2.47.0",
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.13",
-    "@vueuse/core": "^10.11.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@vueuse/core": "^10.11.1",
     "date-fns": "^3.6.0",
+    "embla-carousel-autoplay": "^8.3.0",
+    "embla-carousel-vue": "^8.3.0",
     "nuxt": "^3.13.2",
     "slugify": "^1.6.6",
     "tailwindcss-animated": "^1.1.2",
     "tailwindcss-intersect": "^2.0.1",
-    "vue": "^3.4.34",
-    "vue-router": "^4.4.0"
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "prettier-plugin-tailwindcss": "^0.6.5"
