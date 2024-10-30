@@ -18,11 +18,11 @@ const cookiesOpen = useCookie('cookiesOpen', {
 <template>
   <section class="overflow-clip mt-1" style="background-image: url('/images/beams-home.jpg')">
     <WidgetsCookies v-model:cookies-open="cookiesOpen" v-if="cookiesOpen"/>
-
+    <HomepageCarousel/>
     <HomepageServices/>
     <section class="container mx-auto">
       <WidgetsTitle>Nos évènements</WidgetsTitle>
-      <NuxtLink to="nos-evenements" class="flex items-center w-52 my-3 mx-auto text-xl">
+      <NuxtLink to="nos-evenements" class="prose xl:prose-xl flex items-center w-52 my-3 mx-auto text-xl">
         Tous nos évènements
       </NuxtLink>
       <HomepageEvents/>

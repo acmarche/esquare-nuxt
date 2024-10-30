@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 //https://play.tailwindcss.com/0MGqLZKhTK
 const tagSelected = ref('Tout')
 const events = ref([])
@@ -31,10 +31,10 @@ onMounted(() => {
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error" :error/>
   <section class="flex flex-col" v-else>
-    <div class="flex flex-col items-center">
-      <HomepageTags :data v-model:tag-selected="tagSelected"/>
+    <div class="flex flex-row flex-wrap items-center justify-center">
+      <HomepageTags :data v-model:tag-selected="tagSelected" :add-all="false"/>
     </div>
-    <div class="mx-auto grid w-full max-w-fit grid-cols-1 gap-4 md:grid-cols-3">
+    <div class="mx-auto px-1 grid w-full max-w-fit grid-cols-1 gap-4 md:grid-cols-3">
       <ArticleEventItem v-for="page in events" :key="page.id" :page/>
     </div>
   </section>
