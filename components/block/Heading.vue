@@ -12,11 +12,11 @@ const h = computed(() => {
 <template>
   <component :is="h"
              v-if="h"
-             class="heading text-esquare-yellow font-roboto font-bold my-8 px-2 uppercase flex items-center">
+             class="heading text-esquare-yellow font-roboto font-bold my-2 md:my-4 uppercase flex items-center">
   <span
       aria-hidden="true"
       class="h-0.5 grow rounded bg-gray-200"></span>
-    <span class="mx-3 text-4xl font-semibold">
+    <span class="mx-3 font-semibold">
       <BlockRichText :property/>
     </span>
     <span
@@ -25,15 +25,24 @@ const h = computed(() => {
   </component>
 </template>
 <style>
-.heading h1 {
-  @apply text-3xl;
-}
-
-.heading h2 {
-  @apply text-2xl;
-}
-
-.heading h3 {
+h1.heading {
   @apply text-xl;
+  @media (min-width: 768px) {
+    @apply text-3xl;
+  }
+}
+
+h2.heading {
+  @apply text-xl;
+  @media (min-width: 768px) {
+    @apply text-3xl;
+  }
+}
+
+h3.heading {
+  @apply text-xl;
+  @media (min-width: 768px) {
+    @apply text-3xl;
+  }
 }
 </style>

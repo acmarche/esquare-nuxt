@@ -14,7 +14,6 @@ const breadcrumb = computed(() => data.value?.breadcrumb ?? [])
 useHead({
   title: () => name.value ?? ''
 })
-console.log(useRoute().params)
 </script>
 <template>
   <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :emoji :icon>

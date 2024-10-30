@@ -18,21 +18,36 @@ const texts = computed(() => {
   return property[property.type]['rich_text']
 })
 const color = ref(null)
+
 function getColor(text) {
   color.value = extractColor(text)
-  return color
+  if (color.value != 'false')
+    return color
+  else return false
 }
+
 function hasLink(text) {
   return text.href !== null
+}
+
+function isFillOut(text) {
+  return text.href?.includes('forms.fillout.com')
 }
 </script>
 <template>
   <template v-for="text in texts" :key="text" v-if="texts && texts.length > 0">
     <component :is="hasLink(text) ? 'a' : 'span'"
-               :class="[isBold(text) ? 'font-semibold' : '',isItalic(text) ? 'italic' : '', underline(text) ? 'underline':'',strikethrough(text) ? 'line-through':'']"
+               :class="[isFillOut(text) ? 'buttonFillOut':'',isBold(text) ? 'font-semibold' : '',isItalic(text) ? 'italic' : '', underline(text) ? 'underline':'',strikethrough(text) ? 'line-through':'']"
                :style="[getColor(text) ? 'color:' + color : '']"
                :href="text.text.link?.url">
       {{ text.text.content }}
     </component>
   </template>
 </template>
+<style>
+.buttonFillOut {
+  @media (min-width: 768px) {
+    @apply text-left bg-esquare-yellow text-white font-medium rounded-lg px-6 py-2 shadow-md hover:bg-esquare-blue hover:text-esquare-black hover:shadow-lg transition duration-200
+  }
+}
+</style>

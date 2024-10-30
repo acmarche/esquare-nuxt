@@ -5,11 +5,6 @@ const {
   data,
   error
 } = databaseComposeGet(config.public.NOTION_PARTNERS_DATABASE_ID)
-const breadcrumb = [
-  {
-    name: "Accueil", link: "/", id: 1
-  },
-]
 </script>
 <template>
   <section class="container mx-auto">
