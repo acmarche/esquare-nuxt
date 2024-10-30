@@ -7,23 +7,25 @@ const {
 const mobileMenu = ref(false)
 </script>
 <template>
-  <header
-      class="grid gap-2 items-center gridArea bg-white/5 p-2 shadow backdrop-blur-md z-30">
-    <NuxtLink to="/" @click.prevent="mobileMenu = false" class="flex items-center logoEsquare">
-      <NuxtImg src="https://e-square.marche.be/new/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
-               class="h-8 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
-    </NuxtLink>
-    <div class="HeaderContact flex items-center justify-self-center">
-      <HeaderContactLink v-model:mobile-menu="mobileMenu"/>
-    </div>
-    <div class="buttonMenu z-30 flex items-center justify-self-end">
-      <HeaderMenuButton v-model:mobile-menu="mobileMenu"/>
-    </div>
-    <div class="social mx-auto flex flex-col items-end justify-around space-y-4 md:mr-2">
-      <HeaderSocialIconsLight svg-fill/>
-    </div>
+  <header>
+    <section
+        class="grid gap-2 items-center gridArea bg-white/5 p-2 shadow backdrop-blur-md z-30">
+      <NuxtLink to="/" @click.prevent="mobileMenu = false" class="flex items-center logoEsquare">
+        <NuxtImg src="https://e-square.marche.be/new/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
+                 class="h-8 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
+      </NuxtLink>
+      <div class="HeaderContact flex items-center justify-self-center">
+        <HeaderContactLink v-model:mobile-menu="mobileMenu"/>
+      </div>
+      <div class="buttonMenu z-30 flex items-center justify-self-end">
+        <HeaderMenuButton v-model:mobile-menu="mobileMenu"/>
+      </div>
+      <div class="social mx-auto flex flex-col items-end justify-around space-y-4 md:mr-2">
+        <HeaderSocialIconsLight svg-fill/>
+      </div>
+    </section>
+    <HeaderTopNavigation :child-pages="data ?? []" v-model:mobile-menu="mobileMenu"/>
   </header>
-  <HeaderTopNavigation :child-pages="data ?? []" v-model:mobile-menu="mobileMenu"/>
 </template>
 <style>
 .gridArea {
