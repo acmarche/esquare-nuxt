@@ -1,4 +1,4 @@
-import {eachDayOfInterval, eachWeekOfInterval, endOfWeek, format, parseISO, setMonth, startOfMonth} from 'date-fns'
+import {eachDayOfInterval, eachWeekOfInterval, endOfWeek, format, parseISO, setMonth, startOfMonth, getHours} from 'date-fns'
 import {fr} from 'date-fns/locale'
 
 export function getFullWeeksIncludingOverflow(year, month) {
@@ -55,10 +55,13 @@ export function eventDate(startDate, endDate, addLe = false, hours = false) {
 
     let hoursString = ''
     if (hours) {
-        const hourBegin = formatDate(startDate, 'H')
-        if (hourBegin) {
-            const hourEnd = formatDate(endDate, 'H')
-            if (hourEnd) {
+        const hourBegin = getHours(startDate)
+        let hourEnd = null
+        if (hourBegin > 1) {
+            if (endDate) {
+                 hourEnd = getHours(endDate)
+            }
+            if (hourEnd > 1) {
                 hoursString = formatDate(startDate, 'H:mm') + " - " + formatDate(endDate, 'H:mm')
             } else {
                 hoursString = formatDate(startDate, 'H:mm')

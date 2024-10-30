@@ -5,11 +5,8 @@ const {
   data,
   error
 } = pageComposeGet(config.public.NOTION_SERVICES_PAGE_ID)
-useSeoMeta({
-  title: 'Nos services',
-})
-const breadcrumb = [{name: "Accueil", link: "/"}]
-const name = computed(() => data.value?.title ?? null)
+const name = computed(() => data.value?.title ?? '')
+const breadcrumb = computed(() => data.value?.breadcrumb ?? [])
 const cover = computed(() => getCoverPage(data.value))
 const emoji = computed(() => getEmojiPage(data.value))
 const icon = computed(() => getIconPage(data.value))

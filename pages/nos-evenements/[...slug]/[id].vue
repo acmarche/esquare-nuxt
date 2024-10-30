@@ -20,9 +20,9 @@ useSeoMeta({
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <div v-for="page in data.pages" :key="page.id">
+      <article v-for="page in data.pages" :key="page.id">
         <DatabasesEventShow :page />
-      </div>
+      </article>
     </div>
   </BaseLayout>
 </template>
