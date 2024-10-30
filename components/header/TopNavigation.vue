@@ -3,7 +3,7 @@ const {childPages} = defineProps({childPages: {type: Array, default: []}})
 const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
 </script>
 <template>
-  <div class="relative z-[1000]" aria-labelledby="slide-over-title" role="dialog" aria-modal="true" v-if="mobileMenu">
+  <div class="relative z-[1000]" aria-labelledby="slide-over-title" role="dialog" aria-modal="true" v-show="mobileMenu">
     <!--
       Background backdrop, show/hide based on slide-over state.
 
@@ -14,15 +14,18 @@ const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
         From: "opacity-100"
         To: "opacity-0"
     -->
-    <Transition
+   <!--  <Transition
         enter-active-class="ease-out duration-500"
         enter-from-class="opacity-0"
         enter-to-class="opacity-100"
         leave-active-class="ease-in duration-500"
         leave-from-class="opacity-100"
-        leave-to-class="opacity-0">
-      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" v-if="mobileMenu"></div>
-    </Transition>
+        leave-to-class="opacity-0">-->
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity ease-in duration-500"
+           :class="`${mobileMenu ? 'opacity-100' : 'opacity-0'}`"
+           aria-hidden="true"
+           v-show="mobileMenu"></div>
+  <!--   </Transition>  -->
     <div class="fixed inset-0 overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
         <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -35,15 +38,17 @@ const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
             Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
               From: "translate-x-0"
               To: "translate-x-full"
-          -->
+
           <Transition
               enter-active-class="transform transition ease-in-out duration-500 sm:duration-700"
               enter-from-class="translate-x-full"
               enter-to-class="translate-x-0"
               leave-active-class="transform transition ease-in-out duration-500 sm:duration-700"
               leave-from-class="translate-x-0"
-              leave-to-class="translate-x-full">
-            <div class="pointer-events-auto w-screen max-w-md" v-if="mobileMenu">
+              leave-to-class="translate-x-full"> -->
+            <div class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 sm:duration-700"
+                 :class="`${mobileMenu ? 'translate-x-0' : 'translate-x-full'}`"
+                 v-show="mobileMenu">
               <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                 <div class="px-4 sm:px-6">
                   <div class="flex items-start justify-between">
@@ -75,23 +80,13 @@ const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
                 </div>
               </div>
             </div>
-          </Transition>
+        <!--  </Transition>-->
         </div>
       </div>
     </div>
   </div>
 </template>
 <style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
 .animateText {
   @apply relative after:absolute after:bg-esquare-yellow after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300
 }

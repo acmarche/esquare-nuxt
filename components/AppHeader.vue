@@ -23,6 +23,7 @@ const mobileMenu = ref(false)
       <HeaderSocialIconsLight svg-fill/>
     </div>
   </header>
+  <HeaderTopNavigation :child-pages="data ?? []" v-model:mobile-menu="mobileMenu"/>
 </template>
 <style>
 .gridArea {

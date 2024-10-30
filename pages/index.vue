@@ -18,7 +18,7 @@ const cookiesOpen = useCookie('cookiesOpen', {
 <template>
   <section class="overflow-clip mt-1" style="background-image: url('/images/beams-home.jpg')">
     <WidgetsCookies v-model:cookies-open="cookiesOpen" v-if="cookiesOpen"/>
-    <HomepageCarousel/>
+
     <HomepageServices/>
     <section class="container mx-auto">
       <WidgetsTitle>Nos évènements</WidgetsTitle>
