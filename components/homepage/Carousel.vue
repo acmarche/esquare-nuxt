@@ -52,7 +52,7 @@ onMounted(() => {
       <div class="flicking-pagination"></div>
     </template>
   </flicking>
-  <div v-else>Vide</div>
+  <div v-else>...</div>
 </template>
 <style>
 @import url("@egjs/vue3-flicking/dist/flicking.css");
