@@ -3,7 +3,7 @@
 //https://tw-elements.com/docs/standard/components/social-buttons/
 import {socialIcons} from "~/constants/socialsNetwork";
 
-const propos = defineProps({
+const {svgFill,colorFill} = defineProps({
   svgFill: {
     type: Boolean,
     required: false,
@@ -17,14 +17,14 @@ const propos = defineProps({
 })
 
 function fill(icon) {
-  if (propos.colorFill) {
-    return propos.colorFill
+  if (colorFill) {
+    return colorFill
   }
   return icon.color
 }
 
 function svg(icon) {
-  if (propos.svgFill) {
+  if (svgFill) {
     return icon.svgWithFill
   }
   return icon.svg
