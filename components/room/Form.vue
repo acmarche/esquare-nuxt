@@ -20,19 +20,22 @@ const person = defineModel({
     street: 'bois'
   }
 })
+const {status, data, execute, error} =
+    useFetch(`http://localhost:3000/api/book`, {
+      immediate: false,
+      method: 'post',
+      watch: false,
+      body: {person: person, roomId: roomId, daysSelected: daysSelected},
+    })
+/*
 const {error, data, status, refresh} = useFetch(`${config.public.API_URL}/notion-php/addBook.php`, {
   method: 'POST',
   body: {person: person, roomId: roomId, daysSelected: daysSelected},
   immediate: false,
   watch: false,
-  type: 'application/json',
-  onResponse(context) {
-    console.log(context)
-  }
-})
+})*/
 async function addBook() {
-  console.log(person.value)
-  await refresh()
+  await execute()
   if (!error.value) {
     didItWork.value = true
   }
@@ -144,6 +147,7 @@ async function addBook() {
       </div>
     </div>
     <div class="text-base text-red-500" v-if="error">{{ error }}</div>
+    <div class="text-base text-green-500" v-if="didItWork">success</div>
     <div class="mt-6 flex items-center justify-end gap-x-6">
       <button type="button" class="text-sm font-semibold leading-6 text-gray-900"
               @click="openBook=false">Annuler
