@@ -10,21 +10,25 @@ const url = computed(() => {
   }
   return property.video.file?.url
 })
+const code = computed(() => {
+  return url.value.substring(url.value.lastIndexOf("/") + 1).split("?")[0];
+})
 const caption = computed(() => '')
-//https://www.youtube.com/embed/vO-1eseQ-kc
+const isYouTube = computed(() => {
+  return url.value.includes('youtu')
+})
 </script>
 <template>
-  <br/>
-  <br/>
-  Url Video: {{ url }}
-  <br/>
-  <br/>
-  <video :src="url" width="560" height="315" >
-
+  <iframe
+      v-if="isYouTube"
+      class="aspect-video"
+      width="708" height="598" :src="`https://www.youtube.com/embed/${code}`"
+      title="Stop the Flexbox for 1D, Grid for 2D layout nonsense" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <video :src="url"
+         class="aspect-video"
+         width="708"
+         height="598" v-else>
   </video>
-
-  <iframe width="708" height="398" :src="url"
-          title="Stop the Flexbox for 1D, Grid for 2D layout nonsense" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </template>

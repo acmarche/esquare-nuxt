@@ -47,7 +47,7 @@ function isFillOut(text) {
 <style>
 .buttonFillOut {
   @media (min-width: 768px) {
-    @apply text-left bg-esquare-yellow text-white font-medium rounded-lg px-6 py-2 shadow-md hover:bg-esquare-blue hover:text-esquare-black hover:shadow-lg transition duration-200
+    @apply block text-left border border-esquare-yellow font-medium rounded-lg m-2 px-6 py-2 shadow-md hover:border-esquare-blue hover:text-esquare-black hover:shadow-lg transition duration-200
   }
 }
 </style>

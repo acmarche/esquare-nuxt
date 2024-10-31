@@ -6,7 +6,6 @@ const {property} = defineProps({
   }
 })
 const texts = computed(() => {
-  console.log(property)
   return property
 })
 const color = ref(null)
