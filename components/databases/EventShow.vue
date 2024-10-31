@@ -29,7 +29,7 @@ const dates = computed(() => {
 const content = computed(() => {
   let text = null
   page.blocks.forEach((block) => {
-    if (block.type === 'callout' && block[block.type]?['rich_text']?[0]['plain_text'] === 'DESCRIPTION DU PROJET') {
+    if (block.type === 'callout' && block[block.type]['rich_text'][0]['plain_text'] === 'DESCRIPTION DU PROJET') {
       text = block['content']
     }
   })
