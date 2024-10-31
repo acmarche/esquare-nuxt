@@ -1,11 +1,17 @@
 <script setup>
 import {IconClipboard} from "@tabler/icons-vue";
+
 const openBook = ref(false)
-const {daysSelected,dataGrr} = defineProps({
+const {dataGrr} = defineProps({
   daysSelected: {
     type: Array,
     required: false,
     default: [],
+  },
+  roomId: {
+    type: Number,
+    required: true,
+    default: 0,
   },
   dataGrr: {
     type: Array,
@@ -13,6 +19,7 @@ const {daysSelected,dataGrr} = defineProps({
     default: [],
   }
 })
+
 function dataByDay(day) {
   return dataGrr.filter((item) => {
     return day === item.dayStart
@@ -26,7 +33,9 @@ function dataByDay(day) {
     </span>
     <div v-if="daysSelected.length > 0">
       <ul class="flex flex-row gap-2 items-center">
-        <li class="flex items-center p-3 rounded-md shadow-sm h-12 bg-esquare-green-light text-white" v-for="day in daysSelected" :key="day">{{ getDayInFrenchWithoutYear(day) }}</li>
+        <li class="flex items-center p-3 rounded-md shadow-sm h-12 bg-esquare-green-light text-white"
+            v-for="day in daysSelected" :key="day">{{ getDayInFrenchWithoutYear(day) }}
+        </li>
       </ul>
       <div class="flex flex-col items-start prose lg:prose-xl">
         <div v-for="day in daysSelected" :key="day">
@@ -49,7 +58,7 @@ function dataByDay(day) {
         </div>
         <button
             type="button"
-            @click="openBook=true"
+            @click="openBook=!openBook"
             class="group [transform:translateZ(0)] px-6 py-3 rounded-lg bg-esquare-grey-lighter overflow-hidden relative before:absolute before:bg-esquare-yellow before:bottom-0 before:left-0 before:h-full before:w-full before:-translate-x-full hover:before:translate-x-0 before:transition before:ease-in-out before:duration-500">
           <span class="relative z-0 text-black group-hover:text-white transition ease-in-out duration-500">
             Je souhaite réserver
@@ -57,6 +66,6 @@ function dataByDay(day) {
         </button>
       </div>
     </div>
-    <RoomToBook :open-book/>
+    <RoomToBook v-model:open-book="openBook" :days-selected :room-id/>
   </section>
 </template>

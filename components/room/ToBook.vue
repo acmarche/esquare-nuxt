@@ -1,9 +1,6 @@
 <script setup lang="ts">
 //https://lexingtonthemes.com/tutorials/how-to-create-a-javascript-free-modal-popup-with-only-tailwind-css/
-import { onClickOutside } from '@vueuse/core'
-
 const target = ref(null)
-const roomId = useRoute().params.id
 const openBook = defineModel('openBook')
 defineProps({
   roomId: {
@@ -13,10 +10,9 @@ defineProps({
     type: Array, required: false, default: []
   },
 })
-onClickOutside(target, event => console.log(event))
 </script>
 <template>
-  <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" ref="target">
+  <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <!--
       Background backdrop, show/hide based on modal state.
 
@@ -60,7 +56,7 @@ onClickOutside(target, event => console.log(event))
           <div
               class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
               v-if="openBook">
-            <RoomForm v-model:open-book="openBook" :daysSelected />
+            <RoomForm v-model:open-book="openBook" :roomId :daysSelected />
           </div>
         </transition>
       </div>

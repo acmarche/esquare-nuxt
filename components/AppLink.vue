@@ -1,5 +1,5 @@
 <script setup>
-const propos = defineProps({
+const props = defineProps({
   item: {
     type: Object, required: true
   },
@@ -7,8 +7,8 @@ const propos = defineProps({
     type: String, required: false
   },
 })
-const item = propos.item
-const classCss = propos.classCss
+const item = props.item
+const classCss = props.classCss
 const typeObject = computed(() => {
   if (item.external) {
     return "external"

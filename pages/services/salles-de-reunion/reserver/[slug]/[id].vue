@@ -2,7 +2,7 @@
 const config = useRuntimeConfig()
 const id = useRoute().params.id
 const breadcrumb = [
-  {name: "Nos salles à louer", link: `/services/${config.public.NOTION_SERVICES_PAGE_ID}/salles-de-reunion/${config.public.NOTION_ROOMS_PAGE_ID}`}
+  {name: "Nos salles à louer", link: `/services/salles-de-reunion/${config.public.NOTION_ROOMS_PAGE_ID}`}
 ]
 const {
   status,

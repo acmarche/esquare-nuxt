@@ -76,6 +76,6 @@ function getDataByDay(day) {
         </div>
       </div>
     </div>
-    <RoomReservations :days-selected :data-grr/>
+    <RoomReservations :days-selected :data-grr :room-id/>
   </div>
 </template>
