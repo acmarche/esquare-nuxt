@@ -5,7 +5,7 @@ import { onClickOutside } from '@vueuse/core'
 const target = ref(null)
 const roomId = useRoute().params.id
 const openBook = defineModel('openBook')
-const prop = defineProps({
+defineProps({
   roomId: {
     type: Number, required: false, default: 0
   },

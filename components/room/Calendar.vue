@@ -1,6 +1,6 @@
 <script setup>
 //https://lexingtonthemes.com/tutorials/how-to-create-a-calendar-layout-with-tailwind-css/
-const props = defineProps({
+const {roomId} = defineProps({
   roomId: {
     type: Number,
     required: true,
@@ -16,7 +16,7 @@ const {
   pendingGrr,
   dataGrr,
   errorGrr
-} = entriesGet(props.roomId)
+} = entriesGet(roomId)
 
 watch(monthSelected, (newX) => {
   days.value = getFullWeeksIncludingOverflow(yearSelected.value, newX)

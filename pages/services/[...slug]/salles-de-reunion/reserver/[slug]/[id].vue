@@ -2,7 +2,7 @@
 const config = useRuntimeConfig()
 const id = useRoute().params.id
 const breadcrumb = [
-  {name: "Nos salles à louer", link: `/services/salles-de-reunion/${config.public.NOTION_ROOMS_PAGE_ID}`}
+  {name: "Nos salles à louer", link: `/services/${config.public.NOTION_SERVICES_PAGE_ID}/salles-de-reunion/${config.public.NOTION_ROOMS_PAGE_ID}`}
 ]
 const {
   status,
@@ -45,8 +45,7 @@ useSeoMeta({
   <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :icon :emoji :status :error>
     <template #title>
       <ArticleTitle>
-        <span class="hidden md:block">Détails et réservation de la</span>
-        <span class="md:hidden">La</span> salle <i class="text-esquare-brown">{{ name }} </i>
+        Salle <i class="text-esquare-brown">{{ name }} </i> - Réservation
       </ArticleTitle>
     </template>
     <template v-slot>

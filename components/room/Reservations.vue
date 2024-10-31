@@ -1,8 +1,7 @@
 <script setup>
 import {IconClipboard} from "@tabler/icons-vue";
-
 const openBook = ref(false)
-const props = defineProps({
+const {daysSelected,dataGrr} = defineProps({
   daysSelected: {
     type: Array,
     required: false,
@@ -14,12 +13,8 @@ const props = defineProps({
     default: [],
   }
 })
-const isDaysSelected = computed(() => {
-  return props.daysSelected.length > 0;
-})
-
 function dataByDay(day) {
-  return props.dataGrr.filter((item) => {
+  return dataGrr.filter((item) => {
     return day === item.dayStart
   })
 }
