@@ -26,6 +26,7 @@ defineProps({
     <BlockColumnList :property v-else-if="property.type === 'column_list'"/>
     <BlockCallout :property v-else-if="property.type === 'callout'"/>
     <BlockEmbed :property v-else-if="property.type === 'embed'"/>
+    <BlockPdf :property v-else-if="property.type === 'pdf'"/>
     <BlockDatabase :property v-else-if="property.type === 'child_database'"/>
     <BlockChildPage :property v-else-if="property.type === 'child_page'"/>
     <BlockUnsupported :property v-else/>
