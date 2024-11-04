@@ -11,10 +11,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                roboto: ['Roboto', 'sans-serif'],
-                montserrat: ['Montserrat', 'sans-serif'],
-                'Hanken-Grotesk': ['Hanken Grotesk', 'sans-serif'],
-                lato: [100, 300],
+                Oswald: ['Oswald', 'sans-serif'],
+                'Open-Sans': ['Open Sans', 'sans-serif'],
             },
             colors: {
                 esquare: {

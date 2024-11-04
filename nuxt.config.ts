@@ -6,10 +6,8 @@ export default defineNuxtConfig({
     },
     modules: ['@nuxtjs/tailwindcss', "@nuxt/image", ["@nuxtjs/google-fonts", {
         families: {
-            Roboto: true,
-            Montserrat: true,
-            'Hanken+Grotesk': {wght: '100..900', ital: true},
-            //'Hanken+Grotesk': true
+            Oswald: true,
+            "Open Sans": true,
         }
     }]],
     app: {
