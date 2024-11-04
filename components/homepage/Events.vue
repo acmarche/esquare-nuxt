@@ -2,6 +2,13 @@
 //https://play.tailwindcss.com/0MGqLZKhTK
 const tagSelected = ref('Tout')
 const events = ref([])
+const {tagFilter} = defineProps({
+  tagFilter: {
+    type: String,
+    required: false,
+    default: null,
+  }
+})
 const {
   status,
   data,
@@ -11,19 +18,14 @@ watch(tagSelected, (newTag) => {
   if (newTag === 'Tout') {
     events.value = data.value.pages
   } else if (newTag) {
-    const t = []
-    data.value.pages.forEach((page) => {
-      page['properties']['Organisateur']['multi_select'].forEach((property) => {
-        if (property['name'] === newTag) {
-          t.push(page)
-        }
-      })
-    })
-    events.value = t
+    events.value = filterEvents(data.value.pages, newTag)
   }
 })
 onMounted(() => {
   events.value = data.value?.pages ?? []
+  if (tagFilter) {
+    events.value = filterEvents(events.value, tagFilter)
+  }
 })
 //https://play.tailwindcss.com/KlveA5ADug todo 
 </script>

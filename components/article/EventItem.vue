@@ -23,6 +23,13 @@ const image = computed(() => {
   }
   return '/images/news/book.jpg'
 })
+const tags = computed(() => {
+  const items = []
+  page['properties']['Organisateur']['multi_select'].forEach((property) => {
+    items.push(property['name'])
+  })
+  return items
+})
 </script>
 <template>
   <NuxtLink :to="`nos-evenements/details/${page.id}`"
