@@ -1,5 +1,6 @@
 <script setup>
 import {IconWifi, IconCoffee, IconDeviceTv, IconDeviceProjector, IconChalkboard} from '@tabler/icons-vue'
+
 const equipments = [
   {
     name: 'Wifi',
@@ -33,7 +34,7 @@ const equipments = [
     <p class="text-2xl text-esquare-brown font-semibold ">
       Toutes nos salles sont équipées de :
     </p>
-    <ul role="list" class="flex flex-row gap-5 my-4">
+    <ul role="list" class="grid grid-cols-1 md:flex md:flex-row gap-2 md:gap-5 my-4">
       <li v-for="equipment in equipments" :key="equipment.id" class="flex rounded-md shadow-sm h-12">
         <div
             class="flex w-16 items-center justify-center rounded-l-md bg-esquare-blue text-white">

@@ -31,13 +31,13 @@ const image = computed(() => {
       <h3 class="text-2xl text-esquare-yellow font-semibold">
         {{ roomName }}
       </h3>
-      <span class="text-esquare-grey-dark sm:pl-3 text-left prose lg:prose-xl ">
+      <span class="text-esquare-grey-dark text-left prose lg:prose-xl">
         {{ roomDescription }}
       </span>
       <RoomFeatures :properties/>
       <NuxtLink :to="`/services/salles-de-reunion/reserver/${slugifyString}/${room.id}`"
                 :key="room.id"
-                class="animate-up text-esquare-black text-lg flex flex-row  justify-center items-center h-16 w-80 border-8 border-esquare-blue hover:border-esquare-yellow transition-all duration-200 ease-out ">
+                class="animate-up text-esquare-black text-lg flex flex-row  justify-center items-center h-16 w-full md:w-80 border-4 md:border-8 border-esquare-blue hover:border-esquare-yellow transition-all duration-200 ease-out ">
         Réservation et tarifs
       </NuxtLink>
     </div>

@@ -43,7 +43,7 @@ const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
                      :emoji
                      :cover/>
     </slot>
-    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 min-h-80">
+    <section class="container flex flex-col gap-2 mx-auto p-2 md:px-24 min-h-80">
       <slot name="breadcrumb">
         <ArticleBreadcrumb :breadcrumb/>
       </slot>
@@ -55,7 +55,7 @@ const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
       </slot>
       <WidgetsError :error v-if="error"/>
       <WidgetsLoader v-if="status === 'pending'"/>
-      <div class="mt-3 min-h-svh p-4" v-else>
+      <div class="mt-3 min-h-svh md:p-4" v-else>
         <slot></slot>
       </div>
     </section>
