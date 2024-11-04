@@ -27,13 +27,6 @@ const {status, data, execute, error} =
       watch: false,
       body: {person: person, roomId: roomId, daysSelected: daysSelected},
     })
-/*
-const {error, data, status, refresh} = useFetch(`${config.public.API_URL}/notion-php/addBook.php`, {
-  method: 'POST',
-  body: {person: person, roomId: roomId, daysSelected: daysSelected},
-  immediate: false,
-  watch: false,
-})*/
 async function addBook() {
   await execute()
   if (!error.value) {
