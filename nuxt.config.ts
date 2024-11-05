@@ -8,12 +8,11 @@ export default defineNuxtConfig({
     googleFonts: {
         families: {
             Oswald: {
-                wght: [200, 700],
-                ital: [300,800]
+                wght: '200...700',
             },
-            "Open Sans":  {
-                wght: [300, 800],
-                ital: [300,700]
+            "Open Sans": {
+                wght: '300...800',
+                ital: '300...800'
             },
         }
     },

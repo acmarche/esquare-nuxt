@@ -11,8 +11,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                Oswald: ['Oswald', 'sans-serif'],
-                'Open-Sans': ['Open Sans', 'sans-serif'],
+                Oswald: ['Oswald', 'serif'],
+                'Open-Sans': ['Open Sans', 'serif'],
             },
             colors: {
                 esquare: {

@@ -21,9 +21,12 @@ const color = ref(null)
 
 function getColor(text) {
   color.value = extractColor(text)
-  if (color.value != 'false')
+  if (color.value != 'false'){
     return color
-  else return false
+  }
+  else {
+    return null
+  }
 }
 
 function hasLink(text) {
