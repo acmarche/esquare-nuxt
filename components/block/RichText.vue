@@ -39,6 +39,7 @@ function isFillOut(text) {
     <component :is="hasLink(text) ? 'a' : 'span'"
                :class="[isFillOut(text) ? 'buttonFillOut':'',isBold(text) ? 'font-semibold' : '',isItalic(text) ? 'italic' : '', underline(text) ? 'underline':'',strikethrough(text) ? 'line-through':'']"
                :style="[getColor(text) ? 'color:' + color : '']"
+               :target="hasLink(text) ? '_blank' : '_self'"
                :href="text.text.link?.url">
       {{ text.text.content }}
     </component>

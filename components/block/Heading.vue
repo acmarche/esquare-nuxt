@@ -15,7 +15,7 @@ const h = computed(() => {
              class="heading text-esquare-yellow font-roboto font-bold my-2 md:my-4 uppercase flex items-center">
   <span
       aria-hidden="true"
-      class="h-0.5 grow rounded bg-gray-200"></span>
+      class="h-0.5 grow rounded bg-gray-200 leftArrow"></span>
     <span class="mx-3 font-semibold">
       <BlockRichText :property/>
     </span>
@@ -30,6 +30,10 @@ h1.heading {
   @media (min-width: 768px) {
     @apply text-3xl;
   }
+}
+
+h2 span.leftArrow, h3 span.leftArrow {
+  @apply hidden;
 }
 
 h2.heading {
