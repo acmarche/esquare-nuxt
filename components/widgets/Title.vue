@@ -3,7 +3,7 @@
 //https://codepen.io/shadeed/pen/yLpWBmP
 </script>
 <template>
-  <h3 class="text-esquare-yellow font-roboto font-bold my-2 md:my-4 px-2 uppercase flex items-center">
+  <h3 class="text-esquare-yellow font-Oswald font-bold my-2 md:my-4 px-2 uppercase flex items-center">
   <span
       aria-hidden="true"
       class="h-0.5 grow rounded bg-gray-200 dark:bg-gray-700/75"></span>

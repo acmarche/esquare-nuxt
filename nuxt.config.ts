@@ -4,12 +4,19 @@ export default defineNuxtConfig({
     experimental: {
         payloadExtraction: true
     },
-    modules: ['@nuxtjs/tailwindcss', "@nuxt/image", ["@nuxtjs/google-fonts", {
+    modules: ['@nuxtjs/tailwindcss', "@nuxt/image", "@nuxtjs/google-fonts"],
+    googleFonts: {
         families: {
-            Oswald: true,
-            "Open Sans": true,
+            Oswald: {
+                wght: [200, 700],
+                ital: [300,800]
+            },
+            "Open Sans":  {
+                wght: [300, 800],
+                ital: [300,700]
+            },
         }
-    }]],
+    },
     app: {
         rootId: 'app',
         head: {

@@ -12,7 +12,7 @@ const h = computed(() => {
 <template>
   <component :is="h"
              v-if="h"
-             class="heading text-esquare-yellow font-roboto font-bold my-2 md:my-4 uppercase flex items-center">
+             class="heading font-Oswald text-esquare-yellow font-bold my-2 md:my-4 uppercase flex items-center">
   <span
       aria-hidden="true"
       class="h-0.5 grow rounded bg-gray-200 leftArrow"></span>

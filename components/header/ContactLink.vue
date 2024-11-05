@@ -13,7 +13,7 @@ const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
       <NuxtLink to="/contact"
                 id="search"
                 @click.prevent="mobileMenu = false"
-                class="text-base block py-1.5 px-2 text-gray-900">
+                class="text-lg block py-1.5 px-2 text-gray-900 font-Oswald">
         Contactez-nous
       </NuxtLink>
     </div>
