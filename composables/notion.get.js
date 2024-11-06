@@ -88,7 +88,6 @@ export function getEmojiPage(data) {
 export function filterEvents(events, tag) {
     const result = []
     events.forEach((page) => {
-        console.log(page['properties'])
         page['properties']['Organisateur']['multi_select'].forEach((property) => {
             if (property['name'] === tag) {
                 result.push(page)

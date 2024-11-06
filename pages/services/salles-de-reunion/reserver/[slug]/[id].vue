@@ -45,7 +45,7 @@ useSeoMeta({
   <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :icon :emoji :status :error>
     <template #title>
       <ArticleTitle>
-        Salle <i class="text-esquare-brown">{{ name }} </i> - Réservation
+        <span class="hidden md:inline">Salle </span><i class="text-esquare-brown">{{ name }} </i> - Réservation
       </ArticleTitle>
     </template>
     <template v-slot>
