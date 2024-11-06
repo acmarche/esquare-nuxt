@@ -48,7 +48,7 @@ const tags = computed(() => {
         class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/90 opacity-50 transition group-hover:opacity-100"></div>
     <div
         class="absolute inset-0 flex flex-col justify-end  transition duration-200 ease-in ">
-      <div class="text-white uppercase bg-black/50 h-20 p-3">
+      <div class="text-white uppercase bg-black/50  p-3">
         <span class="block text-2xl font-bold">{{ dates }}</span>
         <h3 class="block text-2xl font-bold">
           <BlockRichText :property="nom"/>
