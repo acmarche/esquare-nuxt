@@ -24,7 +24,8 @@ const plugins = [
   new Pagination()
 ]
 onMounted(() => {
-  events.value = getRandomItems(data.value?.pages ?? [], 6)
+  events.value = data.value?.pages ?? [].slice(0, 5);
+  //events.value = getRandomItems(data.value?.pages ?? [], 6)
 })
 </script>
 <template>
