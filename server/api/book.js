@@ -1,21 +1,17 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event);
     const config = useRuntimeConfig();
-    let payload = [];
 
-    try {
-        const data = await $fetch(`${config.public.API_URL}/notion-php/addBook.php`, {
+    const {status, data, error, response} = await $fetch(
+        `${config.public.API_URL}/notion-php/addBook.php`, {
             method: "POST",
             body: body,
-            headers: {"Content-Type": "application/json"},
-        })
-            .then((data) => {
-                console.log(data)
-                console.log('here')
-                payload = {data: data}
-            });
-    } catch (err) {
-        console.log(err)
+        }
+    )
+
+    return {
+        status,
+        data,
+        error
     }
-    return payload
 });

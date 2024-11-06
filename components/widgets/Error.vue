@@ -8,11 +8,13 @@ const {error} = defineProps({
     default: null
   },
 })
+console.log(JSON.stringify(error))
 </script>
 <template>
-  <div class="flex flex-row items-center text-red-600 p-4 m-4">
+  <div class="flex flex-row items-center text-red-600 p-4 m-4" v-if="error">
     <IconBug class="h-8 w-8 flex-shrink-0 mr-3" aria-hidden="true"/>
-    <span>{{ error?.data?.error?.message ?? error?.message }}</span>
-    <span v-if="error === null">Erreur inconue</span>
+    <span v-if="error.data.data">{{ error.data.data.message }}</span>
+    <span v-else-if="error.data.message">{{ error?.data?.message }}</span>
+    <span v-else>{{ error.statusMessage }}</span>
   </div>
 </template>
