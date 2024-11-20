@@ -89,7 +89,8 @@ export function filterEvents(events, tag) {
     const result = []
     events.forEach((page) => {
         page['properties']['Organisateur']['multi_select'].forEach((property) => {
-            if (property['name'] === tag) {
+            //console.log(property['name'].toUpperCase() , tag.toUpperCase())
+            if (property['name'].toUpperCase() === tag.toUpperCase()) {
                 result.push(page)
             }
         })

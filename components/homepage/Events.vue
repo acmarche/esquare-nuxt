@@ -33,7 +33,7 @@ onMounted(() => {
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error" :error/>
   <section class="flex flex-col" v-else>
-    <div class="flex flex-row flex-wrap items-center justify-center">
+    <div class="flex flex-row flex-wrap items-center justify-center" v-if="!tagFilter">
       <HomepageTags :data v-model:tag-selected="tagSelected" :add-all="false"/>
     </div>
     <div class="mx-auto px-1 grid w-full max-w-fit grid-cols-1 gap-2 md:grid-cols-3">
