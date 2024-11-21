@@ -88,12 +88,13 @@ export function getEmojiPage(data) {
 export function filterEvents(events, tag) {
     const result = []
     events.forEach((page) => {
-        page['properties']['Organisateur']['multi_select'].forEach((property) => {
-            //console.log(property['name'].toUpperCase() , tag.toUpperCase())
-            if (property['name'].toUpperCase() === tag.toUpperCase()) {
-                result.push(page)
-            }
-        })
+        if (page['properties']['Organisateur'])
+            page['properties']['Organisateur']['multi_select'].forEach((property) => {
+                //console.log(property['name'].toUpperCase() , tag.toUpperCase())
+                if (property['name'].toUpperCase() === tag.toUpperCase()) {
+                    result.push(page)
+                }
+            })
     })
     return result
 }
