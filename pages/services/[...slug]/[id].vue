@@ -20,8 +20,8 @@ useHead({
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <HomepageEvents :tag-filter="data.title"/>
       <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
+      <HomepageEvents :tag-filter="data.title"/>
       <div v-for="property in data.blocks" :key="property.id">
         <ArticleRenderBlock :property/>
       </div>
