@@ -1,5 +1,13 @@
 <script setup>
-const {property} = defineProps({
+const {property, width, height} = defineProps({
+  width: {
+    type: String,
+    default: 'auto'
+  },
+  height: {
+    type: String,
+    default: 'auto'
+  },
   property: {
     type: Object
   }
@@ -25,7 +33,7 @@ const url = computed(function () {
 </script>
 <template>
   <figure>
-     <NuxtImg :src="url" alt=""/>
+    <NuxtImg :src="url" alt="" :width="width" :height="height"/>
     <span class="" v-if="caption">{{ caption }}</span>
   </figure>
 </template>
