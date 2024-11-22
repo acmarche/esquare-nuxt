@@ -15,16 +15,18 @@ const texts = computed(() => {
   if (property.type === 'rich_text') {
     return property['rich_text']
   }
+  if (property.type === 'mention') {
+      return property[property.type]['plain_text']
+  }
   return property[property.type]['rich_text']
 })
 const color = ref(null)
 
 function getColor(text) {
   color.value = extractColor(text)
-  if (color.value != 'false'){
+  if (color.value != 'false') {
     return color
-  }
-  else {
+  } else {
     return null
   }
 }
@@ -43,8 +45,9 @@ function isFillOut(text) {
                :class="[isFillOut(text) ? 'buttonFillOut':'',isBold(text) ? 'font-semibold' : '',isItalic(text) ? 'italic' : '', underline(text) ? 'underline':'',strikethrough(text) ? 'line-through':'']"
                :style="[getColor(text) ? 'color:' + color : '']"
                :target="hasLink(text) ? '_blank' : '_self'"
-               :href="text.text.link?.url">
-      {{ text.text.content }}
+               :href="text.text?.link?.url"
+               v-if="text != null">
+      {{ text.text?.content ?? '' }}
     </component>
   </template>
 </template>

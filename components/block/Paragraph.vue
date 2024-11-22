@@ -6,14 +6,17 @@ defineProps({
 })
 </script>
 <template>
-  <div class="maxprose prose lg:prose-xl text-justify">
+  <div class="maxprose prose lg:prose-xl text-just4ify">
     <BlockRichText :property/>
   </div>
 </template>
 <style>
 @media (min-width: 1024px) {
   .maxprose {
-    max-width: 85ch;
+    max-width: 95ch;
   }
+}
+h2 div.maxprose + div  {
+  @apply mr-2
 }
 </style>

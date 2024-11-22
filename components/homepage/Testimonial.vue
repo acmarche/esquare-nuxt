@@ -5,7 +5,7 @@
 //https://play.tailwindcss.com/SvBc6xaRWJ
 </script>
 <template>
-  <div class="mx-auto mt-2 sm:mt-5 sm:px-6 lg:px-0">
+  <div class="mx-auto sm:px-6 mb-2 lg:px-0">
     <div
         class="relative overflow-hidden bg-esquare-yellow px-6 py-20 shadow-xl sm:px-10 sm:py-24 md:px-12 lg:px-20">
       <img class="absolute inset-0 h-full w-full object-cover object-center-center brightness-125 saturate-0"

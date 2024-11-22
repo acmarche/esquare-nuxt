@@ -7,7 +7,7 @@ const {
 const mobileMenu = ref(false)
 </script>
 <template>
-  <header>
+  <header class="mb-1 pb-2 sticky inset-0 z-[99999]">
     <section
         class="grid gap-2 items-center gridArea bg-white/5 p-2 shadow backdrop-blur-md z-30">
       <NuxtLink to="/" @click.prevent="mobileMenu = false" class="flex items-center logoEsquare">

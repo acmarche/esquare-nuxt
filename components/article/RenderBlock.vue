@@ -8,7 +8,7 @@ defineProps({
 })
 </script>
 <template>
-  <div v-if="property">
+  <template v-if="property">
     <BlockParagraph :property v-if="property.type === 'paragraph'"/>
     <BlockMultiSelect :property="property" v-else-if="property.type === 'multi_select'"/>
     <BlockPhoneNumber :property="property" v-else-if="property.type === 'phone_number'"/>
@@ -30,5 +30,5 @@ defineProps({
     <BlockDatabase :property v-else-if="property.type === 'child_database'"/>
     <BlockChildPage :property v-else-if="property.type === 'child_page'"/>
     <BlockUnsupported :property v-else/>
-  </div>
+  </template>
 </template>

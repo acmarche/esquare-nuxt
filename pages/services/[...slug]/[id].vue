@@ -11,6 +11,9 @@ const cover = computed(() => data.value?.cover?.file?.url ?? null)
 const emoji = computed(() => null)
 const icon = computed(() => data.value?.icon?.file?.url ?? null)
 const breadcrumb = computed(() => data.value?.breadcrumb ?? [])
+const hasExcerpt = computed(() => {
+  return data.value['excerpt'] != null;
+})
 useHead({
   title: () => name.value ?? ''
 })
@@ -20,11 +23,12 @@ useHead({
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
+      <BlockParagraph :property="data['excerpt']" v-if="hasExcerpt"/>
       <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
       <HomepageEvents :tag-filter="data.title"/>
-      <div v-for="property in data.blocks" :key="property.id">
+      <template v-for="property in data.blocks" :key="property.id">
         <ArticleRenderBlock :property/>
-      </div>
+      </template>
     </div>
   </BaseLayout>
 </template>

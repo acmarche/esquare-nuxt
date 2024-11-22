@@ -32,8 +32,16 @@ h1.heading {
   }
 }
 
-h2 span.leftArrow, h3 span.leftArrow {
+h2.heading span.leftArrow, h3.heading span.leftArrow {
   @apply hidden;
+}
+
+h2.heading span.leftArrow + span, h3.heading span.leftArrow + span {
+  @apply mx-0;
+}
+
+h2.heading ~ div, h2.heading ~ li, h3.heading + div {
+  @apply mx-2;
 }
 
 h2.heading {

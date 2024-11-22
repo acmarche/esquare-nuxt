@@ -41,7 +41,8 @@ const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
     <slot name="header">
       <ArticleHeader :icon
                      :emoji
-                     :cover/>
+                     :cover
+                     :pageTitle/>
     </slot>
     <section class="container flex flex-col gap-2 mx-auto p-2 md:px-24 min-h-80">
       <slot name="breadcrumb">
