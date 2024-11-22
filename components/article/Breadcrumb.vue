@@ -13,7 +13,7 @@ const dottedOrNot = computed(() => {
 })
 </script>
 <template>
-    <nav class="flex my-4 text-lg" aria-label="Breadcrumb">
+    <nav class="flex my-2 md:my-4 text-lg" aria-label="Breadcrumb">
       <ol role="list" class="flex items-center space-x-4">
         <li class="flex items-center" title="Retour à l'accueil">
           <NuxtLink to="/" class="text-gray-400 hover:text-gray-500">
