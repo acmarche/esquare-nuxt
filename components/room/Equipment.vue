@@ -31,7 +31,7 @@ const equipments = [
 </script>
 <template>
   <div>
-    <p class="text-2xl text-esquare-brown font-semibold ">
+    <p class="text-2xl text-esquare font-semibold ">
       Toutes nos salles sont équipées de :
     </p>
     <ul role="list" class="grid grid-cols-1 md:flex md:flex-row gap-2 md:gap-5 my-4">

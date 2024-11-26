@@ -28,7 +28,7 @@ const image = computed(() => {
         class="w-full md:w-1/2 mb-2 sm:mb-0"
         :src="image" alt="room"/>
     <div class="flex flex-col items-center md:pl-3">
-      <h3 class="text-2xl text-esquare-yellow font-semibold">
+      <h3 class="text-4xl text-esquare-yellow font-semibold">
         {{ roomName }}
       </h3>
       <span class="text-esquare-grey-dark text-left prose lg:prose-xl">

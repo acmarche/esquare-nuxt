@@ -11,6 +11,9 @@ const url = computed(() => {
   return property.video.file?.url
 })
 const code = computed(() => {
+  const urlObj = new URL(url.value);
+  if (url.value.includes('?v'))
+    return urlObj.searchParams.get("v")
   return url.value.substring(url.value.lastIndexOf("/") + 1).split("?")[0];
 })
 const caption = computed(() => '')
@@ -26,9 +29,5 @@ const isYouTube = computed(() => {
       title="Stop the Flexbox for 1D, Grid for 2D layout nonsense" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <video :src="url"
-         class="aspect-video"
-         width="708"
-         height="598" v-else>
-  </video>
+
 </template>
