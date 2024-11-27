@@ -31,7 +31,7 @@ const coverComputed = computed(() => cover ?? config.public.DEFAULT_COVER)
       <h1 class="text-4xl md:text-[6rem] text-esquare-yellow font-Oswald font-semibold uppercase">{{pageTitle}}</h1>
     </div>
     <!-- ICON -->
-    <div class="absolute bottom-0 left-4 md:left-64 -mb-8 max-w-32 rounded-full bg-white">
+    <div class="absolute bottom-0 left-4 md:left-64 -mb-8 max-w-32 rounded-full bg-white border-b border-esquare-yellow">
       <NuxtImg class="h-8 w-8 md:h-16 md:w-16 animate-bounce-in-top duration-700"
                :src="icon"
                alt=""
