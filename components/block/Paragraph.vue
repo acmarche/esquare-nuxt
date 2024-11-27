@@ -14,6 +14,7 @@ defineProps({
 @media (min-width: 1024px) {
   .maxprose {
     max-width: 95ch;
+    text-wrap: balance;
   }
 }
 h2 div.maxprose + div  {
