@@ -22,24 +22,34 @@ const image = computed(() => {
 })
 </script>
 <template>
+  <article class="flex flex-col ">
+    <WidgetsTitleRoom>
+      {{ roomName }}
+    </WidgetsTitleRoom>
+    <div
+        class="flex flex-col md:flex-row">
+      <NuxtImg
+          class="w-full md:w-1/2 mb-2 sm:mb-0"
+          :src="image" alt="room"/>
+      <div class="flex flex-col justify-between md:pl-3 w-full md:w-1/2 ">
+        <span class="text-esquare-grey-dark text-left prose lg:prose-xl">
+          {{ roomDescription }}
+        </span>
+        <RoomFeatures :properties/>
+        <div class="flex self-start">
+          <WidgetsButtonLink :link="`/services/salles-de-reunion/reserver/${slugifyString}/${room.id}`">
+            Réservation et tarifs
+          </WidgetsButtonLink>
+        </div>
+      </div>
+    </div>
+  </article>
+
   <div
       class="flex flex-col sm:flex-row items-center sm:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
-    <NuxtImg
-        class="w-full md:w-1/2 mb-2 sm:mb-0"
-        :src="image" alt="room"/>
+
     <div class="flex flex-col items-center md:pl-3">
-      <h3 class="text-4xl text-esquare-yellow font-semibold">
-        {{ roomName }}
-      </h3>
-      <span class="text-esquare-grey-dark text-left prose lg:prose-xl">
-        {{ roomDescription }}
-      </span>
-      <RoomFeatures :properties/>
-      <NuxtLink :to="`/services/salles-de-reunion/reserver/${slugifyString}/${room.id}`"
-                :key="room.id"
-                class="animate-up text-esquare-black text-lg flex flex-row  justify-center items-center h-16 w-full md:w-80 border-4 md:border-8 border-esquare-blue hover:border-esquare-yellow transition-all duration-200 ease-out ">
-        Réservation et tarifs
-      </NuxtLink>
+
     </div>
   </div>
 </template>
