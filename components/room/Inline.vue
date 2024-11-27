@@ -22,7 +22,7 @@ const image = computed(() => {
 })
 </script>
 <template>
-  <article class="flex flex-col ">
+  <article class="flex flex-col">
     <WidgetsTitleRoom>
       {{ roomName }}
     </WidgetsTitleRoom>
@@ -44,12 +44,4 @@ const image = computed(() => {
       </div>
     </div>
   </article>
-
-  <div
-      class="flex flex-col sm:flex-row items-center sm:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
-
-    <div class="flex flex-col items-center md:pl-3">
-
-    </div>
-  </div>
 </template>
