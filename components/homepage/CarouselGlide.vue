@@ -1,9 +1,9 @@
 <script setup>
-import {Swiper, SwiperSlide} from 'swiper/vue';
-import {Pagination, Navigation } from 'swiper/modules';
-import {register} from 'swiper/element/bundle';
-import 'swiper/swiper-bundle.css';
-import 'swiper/css/pagination';
+import Glide from '@glidejs/glide'
+// Required Core Stylesheet
+import "@glidejs/glide/dist/css/glide.core.css"
+// Optional Theme Stylesheet
+import "@glidejs/glide/dist/css/glide.theme.css";
 
 const events = ref([])
 const {
@@ -21,12 +21,17 @@ function property(page) {
   return page['properties']['Nom']
 }
 
-const modules = [Pagination, Navigation]
 onMounted(() => {
   events.value = getRandomItems(data.value?.pages ?? [], 3)
-  register();
+  new Glide('.glide', {
+    type: 'carousel',
+    startAt: 1,
+    perView: 1
+  }).mount()
 })
 </script>
+<style>
+</style>
 <template>
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error" :error/>
@@ -34,19 +39,17 @@ onMounted(() => {
        v-else>
     <div class="bg-gray-200 bg-cover bg-center flex flex-col items-center justify-center relative basis-2/3 h-[25rem]"
          style="background-image: url('/images/batimentaerien.png');"></div>
-    <div class="overflow-hidden basis-1/3">
-      <swiper
-          :navigation="true"
-          :pagination="true"
-          :modules="modules"
-          :slides-per-view="1"
-          :centered-slides="true"
-          :space-between="0">
-        <swiper-slide v-for="page in events"
-                      :key="page.id">
-          <NuxtImg :src="image(page)" class="object-cover aspect-square w-25[rem] md:h-[25rem] " alt="img"/>
-        </swiper-slide>
-      </swiper>
+    <div class="ove4rflow-hidden basis-1/3">
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides w-25[rem] md:h-[25rem]" style="width: 600px;height: 25rem;">
+            <li class="glide__slide" v-for="page in events"
+                :key="page.id">
+              <NuxtImg :src="image(page)" class="object-cover aspect-square w-25[rem] md:h-[25rem] " alt="img"/>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
