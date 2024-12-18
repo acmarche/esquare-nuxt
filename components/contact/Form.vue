@@ -1,9 +1,14 @@
 <script setup>
 const config = useRuntimeConfig()
 const contact = defineModel({default: {name: 'jf', email: 'jf@marche', message: 'coucou'}})
+const {} = defineProps({
+  property: {
+    type: Object
+  }
+})
 const sended = ref(false)
 const {status, data, execute, error} =
-    useFetch(`http://localhost:3000/api/contact`, {
+    useFetch(`${config.public.API_URL}:3000/api/contact`, {
       immediate: false,
       method: 'post',
       watch: false,

@@ -29,7 +29,7 @@ const person = defineModel({
   }
 })
 const {status, data, execute, error} =
-    useFetch(`http://localhost:3000/api/book`, {
+    useFetch(`${config.public.API_URL}:3000/api/book`, {
       immediate: false,
       method: 'post',
       watch: false,
