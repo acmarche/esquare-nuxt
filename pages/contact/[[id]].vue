@@ -20,11 +20,11 @@ const breadcrumb = [{name: 'Contact', link: "/contact"}]
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
+      <ContactForm/>
       <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
       <div v-for="property in data.blocks" :key="property.id">
         <ArticleRenderBlock :property/>
       </div>
     </div>
-    <ContactForm/>
   </BaseLayout>
 </template>
