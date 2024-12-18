@@ -24,7 +24,6 @@ useHead({
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       <BlockParagraph :property="data['excerpt']" v-if="hasExcerpt"/>
-      <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
       <HomepageEvents :tag-filter="data.title"/>
       <template v-for="property in data.blocks" :key="property.id">
         <ArticleRenderBlock :property/>
