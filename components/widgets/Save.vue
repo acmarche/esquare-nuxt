@@ -40,4 +40,9 @@
   <div class="bg-esquare-yellow text-orange-300">
     <div class="bg-esquare-brown hover:text-esquare-green-dark"></div>
   </div>
+
+   <div class="md:flex-row-reverse">
+
+   <div class="md:flex-row"> </div>
+   </div>
 </template>
