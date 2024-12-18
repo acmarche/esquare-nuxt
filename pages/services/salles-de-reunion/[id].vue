@@ -24,6 +24,9 @@ const name = 'Salles de réunion'
 const cover = computed(() => data.value ? getCoverPage(data.value) : null)
 const emoji = computed(() => data.value ? getEmojiPage(data.value) : null)
 const icon = computed(() => data.value ? getIconPage(data.value) : null)
+
+const roomName = (room) => room.properties.Nom.title[0].text.content
+
 useSeoMeta({
   title: name,
 })
@@ -32,10 +35,15 @@ useSeoMeta({
   <BaseLayout :page-title="name" :breadcrumb :cover :icon :emoji :status :error>
     <RoomEquipment/>
     <WidgetsLoader v-if="roomStatus === 'pending'"/>
-    <WidgetsError v-else-if="roomError" :error="roomError" />
-    <WidgetsError v-else-if="error" :error="error" />
+    <WidgetsError v-else-if="roomError" :error="roomError"/>
+    <WidgetsError v-else-if="error" :error="error"/>
     <div v-else class="overflow-hidden">
-      <RoomInline :room="room" v-for="room in rooms.pages" :key="room.id"/>
+      <article class="flex flex-col gap-2" v-for="(room, index) in rooms.pages" :key="room.id">
+        <WidgetsTitleRoom>
+          {{ roomName(room)}}
+        </WidgetsTitleRoom>
+        <RoomInline :room :index/>
+      </article>
     </div>
   </BaseLayout>
 </template>

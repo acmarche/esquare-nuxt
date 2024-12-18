@@ -3,6 +3,10 @@ const props = defineProps({
   room: {
     type: Object,
     required: true,
+  },
+  index: {
+    type: Number,
+    required: true,
   }
 })
 const properties = computed(() => {
@@ -22,12 +26,10 @@ const image = computed(() => {
 })
 </script>
 <template>
-  <article class="flex flex-col">
-    <WidgetsTitleRoom>
-      {{ roomName }}
-    </WidgetsTitleRoom>
     <div
-        class="flex flex-col md:flex-row">
+        :class="[
+      'flex flex-col gap-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500',
+      index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row']">
       <NuxtImg
           class="w-full md:w-1/2 mb-2 sm:mb-0"
           :src="image" alt="room"/>
@@ -43,5 +45,4 @@ const image = computed(() => {
         </div>
       </div>
     </div>
-  </article>
 </template>
